@@ -1,0 +1,22 @@
+<h2>Make Profile</h2>
+
+<p>
+<%= form_for @profile, url: {action: "create"} do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+  <br><br>
+  <%= f.label :photo_url %><br>
+  <%= f.text_field :photo_url %>
+  <br><br>
+  <%= f.label :city %><br>
+  <%= f.text_field :city %>
+  <br><br>
+  <%= f.label :interests %><br>
+  <%= f.text_field :interests %>
+  <br><br>
+  <%= f.label :about_me %><br>
+  <%= f.text_field :about_me %>
+  <br><br>
+  <%= f.submit "Save" %>
+<% end %>
+</p>
