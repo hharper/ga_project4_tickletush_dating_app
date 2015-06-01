@@ -1,14 +1,1 @@
 <h2>User Profile</h2>
-<a href="/users/<%= current_user.id %>/profile/<%= current_user.id %>/edit">Update Profile</a>
-
-<p>
-<img src="<%= @profile.photo_url %>">
-<br>
-<%= @profile.name %>
-<br>
-Current City: <%= @profile.city %>
-<br>
-Interests: <%= @profile.interests %>
-<br>
-About me: <%= @profile.about_me %>
-</p>
