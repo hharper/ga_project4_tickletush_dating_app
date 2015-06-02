@@ -8,9 +8,15 @@ class User < ActiveRecord::Base
     has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
     has_many :recommendations
-    has_many :recommendeds, :through => :recommendations
-    has_many :inverse_recommendations, :class_name => "Recommendation", :foreign_key => "recommended_id"
-    has_many :inverse_recommendeds, :through => :inverse_recommendations, :source => :user
+    # has_many :recommendeds, :through => :recommendations
+    # has_many :inverse_recommendations, :class_name => "Recommendation", :foreign_key => "recommended_id"
+    # has_many :inverse_recommendeds, :through => :inverse_recommendations, :source => :user
+
+    # has_many :recommendations
+    # has_many :firstMatched_recommendations, :class_name => "Recommendation", :foreign_key => "firstMatch_id"
+    # has_many :inverse_firstMatched_recommendations, :class_name => "Recommendation", :foreign_key => "firstMatch_id"
+    # has_many :secondMatched_recommendations, :class_name => "Recommendation", :foreign_key => "secondMatch_id"
+    # has_many :inverse_secondMatched_recommendations, :class_name => "Recommendation", :foreign_key => "secondMatch_id"
 
 
     has_one :profile, dependent: :destroy

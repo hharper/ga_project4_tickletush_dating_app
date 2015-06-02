@@ -8,16 +8,40 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.find(params[:id])
   end
 
-  def create
-    @recommendation = current_user.recommendations.build(:recommended_id => params[:recommended_id])
-    if @recommendation.save
-      flash[:notice] = "Added recommendation"
-      redirect_to root_url
-    else
-      flash[:error] = "Unable to add recommendation"
-      redirect_to root_url
-    end
+  def new
+    @recommendation = Recommendation.new
   end
+
+  def create
+    if @recommendation = Recommendation.create(recommendation_params)
+      flash[:notice] = "Added recommendation"
+        redirect_to root_url
+      else
+        flash[:error] = "Unable to add recommendation"
+        redirect_to root_url
+      end
+    # @recommendation = current_user.create_recommendation!(recommendation_params)
+
+    # @recommendation = current_user.recommendations.build(:secondMatch_id => params[:secondMatch_id], :firstMatch_id => params[:firstMatch_id])
+    #   if @recommendation.save
+    #     flash[:notice] = "Added recommendation"
+    #     redirect_to root_url
+    #   else
+    #     flash[:error] = "Unable to add recommendation"
+    #     redirect_to root_url
+    #   end
+  end
+
+  # def create
+  #   @recommendation = current_user.recommendations.build(:firstMatch_id => params[:firstMatch_id])
+  #   if @recommendation.save
+  #     flash[:notice] = "Added recommendation"
+  #     redirect_to root_url
+  #   else
+  #     flash[:error] = "Unable to add recommendation"
+  #     redirect_to root_url
+  #   end
+  # end
 
 
   def destroy
@@ -30,7 +54,7 @@ class RecommendationsController < ApplicationController
   private
 
   def recommendation_params
-    params[:recommendation].permit(:matchOne, :matchTwo)
+    params[:recommendation].permit(:user_id, :firstMatch_id, :secondMatch_id)
   end
 
 end

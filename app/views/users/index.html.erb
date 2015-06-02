@@ -1,11 +1,31 @@
+<p>Username: <%= current_user.email %> ID:<%= current_user.id %></p>
+
+<h1> Make a Match: </h1>
+
+<%= form_for @recommendation do |f| %>
+  <%= f.label :recommender %>:
+  <%= f.text_field :user_id %><br />
+
+  <%= f.label :firstMatch_id %>:
+  <%= f.text_field :firstMatch_id %><br />
+
+  <%= f.label :secondMatch_id %>:
+  <%= f.text_field :secondMatch_id %><br />
+
+  <%= f.submit "Make a match!"%>
+<% end %>
+
+
 <h1> User List </h1>
-
-
 <% for user in @users %>
     <p>
-      <strong><%= user.email %></strong>
+      <strong><%= user.email %></strong> <strong><%= user.id %></strong>
       <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+
+<!--
       <%= link_to "Recommend", recommendations_path(:recommended_id => user), :method => :post %>
+      <%= link_to "Recommend as first match", recommendations_path(:firstMatch_id => user), :method => :post %>
+      <%= link_to "Recommend as second match", recommendations_path(:secondMatch_id => user), :method => :post %> -->
     </p>
 
 <% end %>
