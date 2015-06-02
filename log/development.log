@@ -13986,3 +13986,299 @@ Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bd
 
 
 Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-02 19:44:28 -0400
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-02 19:47:39 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.6ms)
+
+SyntaxError (/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/received_recommendations/index.html.erb:13: syntax error, unexpected '?'
+... { method: :patch, status_id: ? } );@output_buffer.safe_appe...
+...                               ^
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/received_recommendations/index.html.erb:16: syntax error, unexpected '?'
+... method: :destroy, status_id: ? } );@output_buffer.safe_appe...
+...                               ^
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/received_recommendations/index.html.erb:21: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end 
+             ^
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/received_recommendations/index.html.erb:23: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/received_recommendations/index.html.erb:25: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/received_recommendations/index.html.erb:13: syntax error, unexpected '?'
+  app/views/received_recommendations/index.html.erb:16: syntax error, unexpected '?'
+  app/views/received_recommendations/index.html.erb:21: syntax error, unexpected keyword_end, expecting ')'
+  app/views/received_recommendations/index.html.erb:23: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/received_recommendations/index.html.erb:25: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (20.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (43.3ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-02 19:48:14 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+SyntaxError (/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/received_recommendations/index.html.erb:13: syntax error, unexpected '?'
+... { method: :patch, status_id: ? } );@output_buffer.safe_appe...
+...                               ^
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/received_recommendations/index.html.erb:14: syntax error, unexpected '?'
+... method: :destroy, status_id: ? } );@output_buffer.safe_appe...
+...                               ^
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/received_recommendations/index.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end 
+             ^
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/received_recommendations/index.html.erb:21: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/received_recommendations/index.html.erb:23: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/received_recommendations/index.html.erb:13: syntax error, unexpected '?'
+  app/views/received_recommendations/index.html.erb:14: syntax error, unexpected '?'
+  app/views/received_recommendations/index.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
+  app/views/received_recommendations/index.html.erb:21: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/received_recommendations/index.html.erb:23: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (20.9ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (41.9ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-02 19:48:22 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mRecommendation Load (0.6ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 6 OR second_match_id = 6)[0m
+  Rendered received_recommendations/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 38ms (Views: 35.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-02 19:48:22 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-02 19:48:22 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-02 19:48:22 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-02 19:48:22 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-02 19:48:22 -0400
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-02 19:48:48 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mRecommendation Load (6.5ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 6 OR second_match_id = 6)[0m
+  Rendered received_recommendations/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 72ms (Views: 63.5ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-02 19:48:48 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-02 19:48:48 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-02 19:48:48 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-02 19:48:48 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-02 19:48:48 -0400
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-02 19:49:01 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Nf3ajyo6ZTh4UxcP1SdaVJHucutEC5t0mx5VoLiBb0Gvo+dUmDIOS5CbOLy2g0+PXDlC61b37yj+J52OkxRANg=="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 50ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 19:49:01 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 47ms (Views: 46.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-06-02 19:49:02 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (2.8ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (99.8ms)
+Completed 200 OK in 131ms (Views: 125.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-06-02 19:49:07 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZP47GmTgqnKeNZbrFiyIGlqNJFPL4VdXXOJ7iJxAAh6cVsRE6qJ1Aqo935hB/KUx2GOxim0Dwj24gm1E/rdhA==", "user"=>{"email"=>"heharper4@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "heharper4@gmail.com"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["last_sign_in_at", "2015-06-02 20:56:22.451152"], ["current_sign_in_at", "2015-06-02 23:49:07.739401"], ["sign_in_count", 6], ["updated_at", "2015-06-02 23:49:07.741455"], ["id", 4]]
+  [1m[35m (1.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 93ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 19:49:07 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/recommendations" for ::1 at 2015-06-02 19:49:11 -0400
+Processing by RecommendationsController#index as HTML
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations"
+  Rendered recommendations/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 29ms (Views: 26.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/recommendations/1" for ::1 at 2015-06-02 19:49:16 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mRecommendation Load (0.2ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1[0m  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 70ms (Views: 40.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-02 19:49:21 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mRecommendation Load (0.4ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 4 OR second_match_id = 4)[0m
+  Rendered received_recommendations/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2015-06-02 19:50:48 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 143ms (Views: 122.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/4" for ::1 at 2015-06-02 19:51:18 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mFriendship Load (2.3ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 4]]
+  Rendered users/show.html.erb within layouts/application (80.1ms)
+Completed 200 OK in 121ms (Views: 112.6ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/users" for ::1 at 2015-06-02 19:51:36 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 51ms (Views: 47.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users" for ::1 at 2015-06-02 19:51:41 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 102ms (Views: 31.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/friendships?friend_id=6" for ::1 at 2015-06-02 19:51:44 -0400
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"QRKPoERcXQ91vhVFy1hMFPPmm4AHQwiQQ1Jg1dfFvRKeM4FHO8V6+h5dIQeyGwyQpQiAJz7uKv100sSAFtcxQQ==", "friend_id"=>"6"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "friendships" ("friend_id", "user_id") VALUES ($1, $2) RETURNING "id"  [["friend_id", 6], ["user_id", 4]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 19:51:44 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+Completed 200 OK in 28ms (Views: 27.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4" for ::1 at 2015-06-02 19:51:49 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mFriendship Load (0.2ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 4]]
+  Rendered users/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 38ms (Views: 34.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users/recommendations" for ::1 at 2015-06-02 19:51:58 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"recommendations"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mFriendship Load (0.2ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 4]]
+  Rendered users/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 30ms (Views: 25.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/recommendations" for ::1 at 2015-06-02 19:52:05 -0400
+Processing by RecommendationsController#index as HTML
+  [1m[36mRecommendation Load (0.3ms)[0m  [1mSELECT "recommendations".* FROM "recommendations"[0m
+  Rendered recommendations/index.html.erb within layouts/application (1.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/recommendations/4" for ::1 at 2015-06-02 19:52:26 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 40ms (Views: 35.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-02 19:52:55 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mRecommendation Load (0.7ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 4 OR second_match_id = 4)
+  Rendered received_recommendations/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 124ms (Views: 102.2ms | ActiveRecord: 1.8ms)

@@ -1,5 +1,5 @@
 <h1> My Received Recommendations </h1>
-
+<p>Username: <%= current_user.email %> ID:<%= current_user.id %></p>
 
 <% for recommendation in @recommendations %>
 
@@ -9,7 +9,6 @@
 <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO ME
 <% end %>
 </br>
-
 
 <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %>
 </br>
