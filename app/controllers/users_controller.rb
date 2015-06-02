@@ -33,4 +33,21 @@ class UsersController < ApplicationController
     @profile = Profile.create!(name: params[:name], photo_url: params[:photo_url], city: params[:city], interests: params[:interests], about_me: params[:about_me])
   end
 
+
+  # def pending_status
+  #   @user_recs = []
+  #     Recommendation.where(current_user_id == firstMatch_id).each do |rec|
+  #       if rec.status_id == 1 || rec.status_id == 3
+  #         @user_recs << rec
+  #       end
+  #     end
+  #       Recommendation.where(current_user_id ==secondMatch_id).each do |rec|
+  #         if rec.status_id == 1 || rec.status_id == 2
+  #           @user_recs << rec
+  #         end
+  #       end
+  # end
+
+  
+
 end

@@ -1,0 +1,10 @@
+<%= @user.recommendations.each do |rec|%>
+<%= rec %>
+<%= rec.firstMatch_id.email %>
+<%= rec.secondMatch_id.email %>
+
+accept button
+<%= button_to "Accept Match", { method: :patch, status_id: ? } %>
+
+decline button
+<%= button_to "Decline Match", { method: :destroy, status_id: ? } %>

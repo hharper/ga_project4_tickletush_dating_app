@@ -22,26 +22,10 @@
   <% end %>
 </ul>
 
-<h2>Recommendations</h2>
-<ul>
-  <% for recommendation in @user.recommendations %>
-    <li>
-      <%= recommendation.recommended.email %>
-      (<%= link_to "remove", recommendation, :method => :delete %>)
-    </li>
-  <% end %>
-</ul>
 
 
-<h2>Recommended by Users</h2>
-<ul>
-  <% for user in @user.inverse_recommendeds %>
-    <li><%= user.email %></li>
-  <% end %>
-</ul>
 
-
-<h2>Recommendations as first match</h2>
+<!-- <h2>Recommendations as first match</h2>
 <ul>
   <% for recommendation in @user.recommendations %>
     <li>
@@ -59,4 +43,4 @@
       (<%= link_to "remove", recommendation, :method => :delete %>)
     </li>
   <% end %>
-</ul>
+</ul> -->

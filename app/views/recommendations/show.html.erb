@@ -1,7 +1,5 @@
-<%= @recommendation.matchOne %>
-<%= @recommendation.matchTwo %>
-<br>
-<%= link_to "Delete From Recommendations", place_path(@recommendation), method: :delete, confirm: true%>
-
-<br>
-<%= link_to "Go Back", :back %>
+<h1> MY RECOMMENDATIONS (Recommendations that I, the User, have made) </h1>
+  <% for recommendation in @recommendations %>
+  I HAVE RECOMMENDED <%= recommendation.firstMatch_id %> TO <%= recommendation.secondMatch_id %>
+  </br>
+<% end %>

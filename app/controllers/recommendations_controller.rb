@@ -1,11 +1,12 @@
 class RecommendationsController < ApplicationController
 
   def index
-   @recommendations = current_user.recommendations
+   @recommendations = Recommendation.all
   end
 
   def show
-    @recommendation = Recommendation.find(params[:id])
+    @recommendations = current_user.recommendations
+    # @recommendation = Recommendation.find(params[:id])
   end
 
   def new
@@ -13,14 +14,14 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-    if @recommendation = Recommendation.create(recommendation_params)
+    if @recommendation = current_user.recommendations.create(recommendation_params)
+    # if @recommendation = Recommendation.create(recommendation_params)
       flash[:notice] = "Added recommendation"
         redirect_to root_url
       else
         flash[:error] = "Unable to add recommendation"
         redirect_to root_url
       end
-    # @recommendation = current_user.create_recommendation!(recommendation_params)
 
     # @recommendation = current_user.recommendations.build(:secondMatch_id => params[:secondMatch_id], :firstMatch_id => params[:firstMatch_id])
     #   if @recommendation.save
@@ -32,17 +33,6 @@ class RecommendationsController < ApplicationController
     #   end
   end
 
-  # def create
-  #   @recommendation = current_user.recommendations.build(:firstMatch_id => params[:firstMatch_id])
-  #   if @recommendation.save
-  #     flash[:notice] = "Added recommendation"
-  #     redirect_to root_url
-  #   else
-  #     flash[:error] = "Unable to add recommendation"
-  #     redirect_to root_url
-  #   end
-  # end
-
 
   def destroy
     @recommendation = current_user.recommendations.find(params[:id])
@@ -51,10 +41,11 @@ class RecommendationsController < ApplicationController
     redirect_to current_user
   end
 
-  private
 
+
+  private
   def recommendation_params
-    params[:recommendation].permit(:user_id, :firstMatch_id, :secondMatch_id)
+    params[:recommendation].permit(:firstMatch_id, :secondMatch_id, :status_id)
   end
 
 end

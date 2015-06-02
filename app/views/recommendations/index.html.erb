@@ -1,7 +1,5 @@
-<h3>My Recommendations</h3>
-
-<ul>
-  <% @recommendations.each do |recommendation| %>
-    <li><%= link_to recommendation.location, recommendation_path(recommendation) %></li>
-  <% end %>
-</ul>
+<h3>ALL Recommendations</h3>
+<% for recommendation in @recommendations %>
+<%= recommendation.firstMatch_id %> HAS BEEN RECOMMENDED TO <%= recommendation.secondMatch_id %>
+</br>
+<% end %>

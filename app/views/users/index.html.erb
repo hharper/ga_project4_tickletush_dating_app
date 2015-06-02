@@ -3,14 +3,15 @@
 <h1> Make a Match: </h1>
 
 <%= form_for @recommendation do |f| %>
-  <%= f.label :recommender %>:
-  <%= f.text_field :user_id %><br />
-
+  
   <%= f.label :firstMatch_id %>:
   <%= f.text_field :firstMatch_id %><br />
 
   <%= f.label :secondMatch_id %>:
   <%= f.text_field :secondMatch_id %><br />
+
+  <%= f.label :status_id %>:
+  <%= f.text_field :status_id %><br />
 
   <%= f.submit "Make a match!"%>
 <% end %>

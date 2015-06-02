@@ -1,0 +1,4 @@
+<% @user.matched_recommendations.each do |rec| %>
+<%= rec.matchOne.email %>
+<%= rec.matchTwo.email %>
+<% end %>
