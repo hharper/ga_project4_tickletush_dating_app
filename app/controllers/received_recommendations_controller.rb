@@ -1,4 +1,4 @@
-class Received_RecommendationsController < ApplicationController
+class ReceivedRecommendationsController < ApplicationController
 
   def index
     @recommendations = current_user.recommended_as_match

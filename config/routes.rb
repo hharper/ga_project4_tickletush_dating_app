@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :profiles
   resources :friendships
+  resources :received_recommendations
 
   # resources :users do
   #   get 'pending_status', :on => :collection
