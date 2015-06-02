@@ -21,26 +21,3 @@
     <li><%= user.email %></li>
   <% end %>
 </ul>
-
-
-
-
-<!-- <h2>Recommendations as first match</h2>
-<ul>
-  <% for recommendation in @user.recommendations %>
-    <li>
-      <%= recommendation.firstMatch.email %>
-      (<%= link_to "remove", recommendation, :method => :delete %>)
-    </li>
-  <% end %>
-</ul>
-
-<h2>Recommendations as second match</h2>
-<ul>
-  <% for recommendation in @user.recommendations %>
-    <li>
-      <%= recommendation.secondMatch.email %>
-      (<%= link_to "remove", recommendation, :method => :delete %>)
-    </li>
-  <% end %>
-</ul> -->

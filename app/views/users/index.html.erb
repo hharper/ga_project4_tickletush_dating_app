@@ -3,12 +3,12 @@
 <h1> Make a Match: </h1>
 
 <%= form_for @recommendation do |f| %>
-  
-  <%= f.label :firstMatch_id %>:
-  <%= f.text_field :firstMatch_id %><br />
 
-  <%= f.label :secondMatch_id %>:
-  <%= f.text_field :secondMatch_id %><br />
+  <%= f.label :first_match_id %>:
+  <%= f.text_field :first_match_id %><br />
+
+  <%= f.label :second_match_id %>:
+  <%= f.text_field :second_match_id %><br />
 
   <%= f.label :status_id %>:
   <%= f.text_field :status_id %><br />
@@ -25,7 +25,7 @@
 
 <!--
       <%= link_to "Recommend", recommendations_path(:recommended_id => user), :method => :post %>
-      <%= link_to "Recommend as first match", recommendations_path(:firstMatch_id => user), :method => :post %>
+      <%= link_to "Recommend as first match", recommendations_path(:first_match_id => user), :method => :post %>
       <%= link_to "Recommend as second match", recommendations_path(:secondMatch_id => user), :method => :post %> -->
     </p>
 

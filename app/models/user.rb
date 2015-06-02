@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   # has_many :inverse_recommendeds, :through => :inverse_recommendations, :source => :user
 
   # has_many :recommendations
-  # has_many :firstMatched_recommendations, :class_name => "Recommendation", :foreign_key => "firstMatch_id"
-  # has_many :inverse_firstMatched_recommendations, :class_name => "Recommendation", :foreign_key => "firstMatch_id"
+  # has_many :firstMatched_recommendations, :class_name => "Recommendation", :foreign_key => "first_match_id"
+  # has_many :inverse_firstMatched_recommendations, :class_name => "Recommendation", :foreign_key => "first_match_id"
   # has_many :secondMatched_recommendations, :class_name => "Recommendation", :foreign_key => "secondMatch_id"
   # has_many :inverse_secondMatched_recommendations, :class_name => "Recommendation", :foreign_key => "secondMatch_id"
 
@@ -24,13 +24,13 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable
 
   def recommended_as_match
-    Recommendation.where('firstMatch_id = :user_id OR secondMatch_id = :user_id', user_id: self)
+    Recommendation.where('first_match_id = :user_id OR second_match_id = :user_id', user_id: self)
     #query DB for all recommendations where I as user have been recommended as a potential match
   end
 
   # def matched_recommendations
-  #   Recommendation.where(firstMatch_id: self) ||
-  #   Recommendation.where(secondMatch_id: self) && Recommendation.status_id == 4
+  #   Recommendation.where(first_match_id: self) || OR
+  #   Recommendation.where(second_match_id: self) && AND Recommendation.status_id == 4
   #   #query DB for all recommendations where I as user have been recommended as a potential match AND both matches have accepted the match
   # end
   #

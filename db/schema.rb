@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602180129) do
+ActiveRecord::Schema.define(version: 20150602231111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20150602180129) do
 
   create_table "recommendations", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "firstMatch_id"
-    t.integer "secondMatch_id"
+    t.integer "first_match_id"
+    t.integer "second_match_id"
     t.integer "status_id"
   end
 

@@ -1,7 +1,7 @@
 <%= @user.recommendations.each do |rec|%>
 <%= rec %>
-<%= rec.firstMatch_id.email %>
-<%= rec.secondMatch_id.email %>
+<%= rec.first_match_id.email %>
+<%= rec.second_match_id.email %>
 
 accept button
 <%= button_to "Accept Match", { method: :patch, status_id: ? } %>

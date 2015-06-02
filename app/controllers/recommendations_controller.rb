@@ -23,7 +23,7 @@ class RecommendationsController < ApplicationController
         redirect_to root_url
       end
 
-    # @recommendation = current_user.recommendations.build(:secondMatch_id => params[:secondMatch_id], :firstMatch_id => params[:firstMatch_id])
+    # @recommendation = current_user.recommendations.build(:secondMatch_id => params[:secondMatch_id], :first_match_id => params[:first_match_id])
     #   if @recommendation.save
     #     flash[:notice] = "Added recommendation"
     #     redirect_to root_url
@@ -45,7 +45,7 @@ class RecommendationsController < ApplicationController
 
   private
   def recommendation_params
-    params[:recommendation].permit(:firstMatch_id, :secondMatch_id, :status_id)
+    params[:recommendation].permit(:first_match_id, :second_match_id, :status_id)
   end
 
 end

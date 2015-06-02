@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   # def pending_status
   #   @user_recs = []
-  #     Recommendation.where(current_user_id == firstMatch_id).each do |rec|
+  #     Recommendation.where(current_user_id == first_match_id).each do |rec|
   #       if rec.status_id == 1 || rec.status_id == 3
   #         @user_recs << rec
   #       end
@@ -48,6 +48,6 @@ class UsersController < ApplicationController
   #       end
   # end
 
-  
+
 
 end
