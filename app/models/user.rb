@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     has_many :recommendations
     has_many :recommendeds, :through => :recommendations
     has_many :inverse_recommendations, :class_name => "Recommendation", :foreign_key => "recommended_id"
-    has_many :inverse_matches, :through => :inverse_recommendations, :source => :user
+    has_many :inverse_recommendeds, :through => :inverse_recommendations, :source => :user
 
 
     has_one :profile, dependent: :destroy

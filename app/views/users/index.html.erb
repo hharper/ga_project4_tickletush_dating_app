@@ -5,14 +5,6 @@
     <p>
       <strong><%= user.email %></strong>
       <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
-    </p>
-
-<% end %>
-
-
-<% for user in @users %>
-    <p>
-      <strong><%= user.email %></strong>
       <%= link_to "Recommend", recommendations_path(:recommended_id => user), :method => :post %>
     </p>
 

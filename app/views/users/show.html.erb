@@ -35,7 +35,7 @@
 
 <h2>Recommended by Users</h2>
 <ul>
-  <% for user in @user.inverse_matches %>
+  <% for user in @user.inverse_recommendeds %>
     <li><%= user.email %></li>
   <% end %>
 </ul>
