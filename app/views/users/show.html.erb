@@ -1,9 +1,9 @@
-<h2>User Profile</h2>
+<h2>My Profile</h2>
 
 <p>Username: <%= @user.email %></p>
 
 
-<h2>Friends</h2>
+<!-- <h2>Friends</h2>
 <ul>
   <% for friendship in @user.friendships %>
     <li>
@@ -21,10 +21,8 @@
     <li><%= user.email %></li>
     <li><img src="<%= user.profile.photo_url %>"></li>
   <% end %>
-</ul>
+</ul> -->
 
-
-<h2>User Profile</h2>
 <a href="/users/<%= current_user.id %>/profiles/<%= current_user.id %>/edit">Update Profile</a>
 
 <p>

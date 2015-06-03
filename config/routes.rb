@@ -7,11 +7,18 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :recommendations
+  resources :recommendations do
+    member do
+      get "accept_first_match"
+      get "accept_second_match"
+    end
+  end
   resources :comments
   # resources :users
   resources :users do
     resources :profiles
+    # get :recomended_as_match, on: :collection
+
   end
   # resources :profiles
   resources :friendships

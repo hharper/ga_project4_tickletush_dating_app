@@ -1,50 +1,66 @@
-<h1> My Received Recommendations </h1>
+<h1> My Pending Matches </h1>
 <p>Username: <%= current_user.email %> ID:<%= current_user.id %></p>
 
 <% for recommendation in @recommendations %>
 
 <% if recommendation.first_match_id == current_user.id %>
 <%= recommendation.second_match_id %> HAS BEEN RECOMMENDED TO ME
+
+<form action="/recommendations/<%=recommendation.id %>/accept_second_match" method="patch">
+  <input type="submit" value="Accept">
+</form>
+
 <% else recommendation.second_match_id == current_user.id %>
 <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO ME
+<form action="/recommendations/<%=recommendation.id %>/accept_first_match" method="patch">
+  <input type="submit" value="Accept">
+</form>
 
 <% end %>
+<form action="/recommendations/decline" method="patch">
+  <input type="submit" value="Decline">
+</form>
 
-<div id="accept">
+<p> status<%= recommendation.status_id %></p>
+<p> id<%= recommendation.id %></p>
+
+<!-- <div id="accept">
 <button type="button">Accept</button>
-</div>
+</div> -->
 
-<div id="decline">
+
+
+<!-- <div id="decline">
 <button type="button">Decline</button>
-</div>
+</div> -->
 
 <!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
 </br>
 <% end %>
 
-<script type="text/javascript">
-$("#accept").click(function() {
-  alert( "Accept for .click() called." );
-
-
-  <%  if recommendation.first_match_id == current_user.id %>
-    <%  recommendation.accept_first_match %>
-    <%  else recommendation.second_match_id == current_user.id %>
-    <%    recommendation.accept_second_match %>
-    <% end %>
-
-
-});
-
-$("#decline").click(function() {
-  alert( "Decline for .click() called." );
-
-  <% recommendation.decline %>
-
-  // if current_user.id == first_match_id
-  //   @recommendation.accept_first_match
-  // else current_user.id == second_match_id
-  //   @recommendation.accept_second_match
-  // end
-});
-</script>
+ <script type="text/javascript">
+// $("#accept").click(function() {
+//   alert( "Accept for .click() called." );
+//
+//
+//   <%#  if recommendation.first_match_id == current_user.id %>
+//     <%#  recommendation.accept_first_match %>
+//     <%#  else recommendation.second_match_id == current_user.id %>
+//     <%#    recommendation.accept_second_match %>
+//     <%# end %>
+//
+//
+// });
+//
+// $("#decline").click(function() {
+//   alert( "Decline for .click() called." );
+//
+//   <%# recommendation.decline %>
+//
+//   // if current_user.id == first_match_id
+//   //   @recommendation.accept_first_match
+//   // else current_user.id == second_match_id
+//   //   @recommendation.accept_second_match
+//   // end
+// });
+// </script>

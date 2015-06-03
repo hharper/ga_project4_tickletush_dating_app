@@ -1,4 +1,5 @@
 class RecommendationsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
    @recommendations = Recommendation.all
@@ -14,14 +15,14 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-    if @recommendation = current_user.recommendations.create(recommendation_params)
+    @recommendation = current_user.recommendations.create(recommendation_params)
     # if @recommendation = Recommendation.create(recommendation_params)
-      flash[:notice] = "Added recommendation"
-        redirect_to root_url
-      else
-        flash[:error] = "Unable to add recommendation"
-        redirect_to root_url
-      end
+      # flash[:notice] = "Added recommendation"
+      redirect_to recommendation_path(current_user)
+      # else
+      #   flash[:error] = "Unable to add recommendation"
+      #   redirect_to root_url
+
 
     # @recommendation = current_user.recommendations.build(:secondMatch_id => params[:secondMatch_id], :first_match_id => params[:first_match_id])
     #   if @recommendation.save
@@ -41,7 +42,21 @@ class RecommendationsController < ApplicationController
     redirect_to current_user
   end
 
+  def accept_first_match
+    @recommendation = Recommendation.find(params[:id])
+    @recommendation.accept_first_match
+    redirect_to received_recommendations_path
+  end
 
+  def accept_second_match
+    @recommendation = Recommendation.find(params[:id])
+    @recommendation.accept_second_match
+    redirect_to received_recommendations_path
+  end
+
+  def decline
+    @recommendations = current_user.decline
+  end
 
   private
   def recommendation_params
