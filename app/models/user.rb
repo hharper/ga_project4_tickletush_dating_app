@@ -28,11 +28,10 @@ class User < ActiveRecord::Base
     #query DB for all recommendations where I as user have been recommended as a potential match
   end
 
-  # def matched_recommendations
-  #   Recommendation.where(first_match_id: self) || OR
-  #   Recommendation.where(second_match_id: self) && AND Recommendation.status_id == 4
-  #   #query DB for all recommendations where I as user have been recommended as a potential match AND both matches have accepted the match
-  # end
-  #
+  def matched_recommendations
+    Recommendation.where('(first_match_id = :user_id OR second_match_id = :user_id) AND status_id = 4', user_id: self)
+    #query DB for all recommendations where I as user have been recommended as a potential match AND both matches have accepted the match
+  end
+
 
 end
