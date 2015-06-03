@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @profile = current_user.profile
+      redirect_to new_user_profiles_path(current_user) unless @profile
     # @recommendations = Recommendation.all
     # @profile = current_user.profile
     #
