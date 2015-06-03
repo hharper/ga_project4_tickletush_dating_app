@@ -20,7 +20,12 @@
 <h1> User List </h1>
 <% for user in @users %>
     <p>
-      <strong><%= user.email %></strong> <strong><%= user.id %></strong>
+      <img src="<%= user.profile.photo_url %>">
+    </br>
+      <strong><%= user.profile.name %> </br><%= user.email %></strong> <strong><%= user.id %></strong>
+    </br>
+      <%= user.profile.interests %>
+
       <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
 
 <!--
