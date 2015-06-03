@@ -3,11 +3,11 @@
 
 <% for recommendation in @recommendations %>
 
-
 <% if recommendation.first_match_id == current_user.id %>
 <%= recommendation.second_match_id %> HAS BEEN RECOMMENDED TO ME
 <% else recommendation.second_match_id == current_user.id %>
 <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO ME
+
 <% end %>
 
 <div id="accept">
@@ -25,17 +25,22 @@
 <script type="text/javascript">
 $("#accept").click(function() {
   alert( "Accept for .click() called." );
-  // for recommendation in @recommendations
-  //   if recommendation.first_match_id == current_user.id
-  //     recommendation.accept_first_match
-  //     else recommendation.second_match_id == current_user.id
-  //       recommendation.accept_second_match
-  //    end
-  // end
+
+
+  <%  if recommendation.first_match_id == current_user.id %>
+    <%  recommendation.accept_first_match %>
+    <%  else recommendation.second_match_id == current_user.id %>
+    <%    recommendation.accept_second_match %>
+    <% end %>
+
+
 });
 
 $("#decline").click(function() {
   alert( "Decline for .click() called." );
+
+  <% recommendation.decline %>
+
   // if current_user.id == first_match_id
   //   @recommendation.accept_first_match
   // else current_user.id == second_match_id

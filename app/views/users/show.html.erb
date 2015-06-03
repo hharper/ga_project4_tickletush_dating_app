@@ -19,6 +19,7 @@
 <ul>
   <% for user in @user.inverse_friends %>
     <li><%= user.email %></li>
+    <li><img src="<%= user.profile.photo_url %>"></li>
   <% end %>
 </ul>
 
