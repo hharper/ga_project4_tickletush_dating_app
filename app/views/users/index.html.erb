@@ -10,9 +10,8 @@
   <%= f.label :second_match_id %>:
   <%= f.text_field :second_match_id %><br />
 
-  <%= f.label :status_id %>:
-  <%= f.text_field :status_id %><br />
-
+  <%= f.hidden_field:status_id, :value => 1 %>
+  
   <%= f.submit "Make a match!"%>
 <% end %>
 
@@ -24,7 +23,9 @@
     </br>
       <strong><%= user.profile.name %> </br><%= user.email %></strong> <strong><%= user.id %></strong>
     </br>
-      <%= user.profile.interests %>
+      Current City: <%= user.profile.city %>
+    </br>
+      Interests: <%= user.profile.interests %>
 
       <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
 
