@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :profiles
     # get :recomended_as_match, on: :collection
   end
-  # resources :profiles
+  resources :profiles
   resources :friendships
   resources :received_recommendations
   resources :accepted_recommendations

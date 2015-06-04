@@ -4,6 +4,19 @@
 
 <%= form_for @recommendation do |f| %>
 
+<select name="first_match_id">
+  <% Profile.all.each do |profile| %>
+    <option value="<%= profile.user_id %>"><%= profile.name %></option>
+  <% end %>
+</select>
+
+<select name="second_match_id">
+  <% Profile.all.each do |profile| %>
+    <option value="<%= profile.user_id %>"><%= profile.name %></option>
+  <% end %>
+</select>
+
+ </br>
   <%= f.label :first_match_id %>:
   <%= f.text_field :first_match_id %><br />
 
@@ -11,7 +24,7 @@
   <%= f.text_field :second_match_id %><br />
 
   <%= f.hidden_field:status_id, :value => 1 %>
-  
+
   <%= f.submit "Make a match!"%>
 <% end %>
 

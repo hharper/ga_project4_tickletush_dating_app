@@ -33888,3 +33888,1819 @@ Processing by UsersController#index as HTML
   [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
   Rendered users/index.html.erb within layouts/application (16.6ms)
 Completed 200 OK in 46ms (Views: 39.8ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/recommendations" for ::1 at 2015-06-04 11:17:04 -0400
+Processing by RecommendationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vn7l2Sx+KNKkXKlhxm5eN5BGlnPrxlmo6RzOCgainHrWsvibHUelirpSXOzZIORUwAMWk93l6B7LYhs+UJwPLQ==", "recommendation"=>{"first_match_id"=>"2", "second_match_id"=>"4", "status_id"=>"1"}, "commit"=>"Make a match!"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (7.9ms)[0m  [1mINSERT INTO "recommendations" ("first_match_id", "second_match_id", "status_id", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_match_id", 2], ["second_match_id", 4], ["status_id", 1], ["user_id", 5]]
+  [1m[35m (1.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/recommendations/5
+Completed 302 Found in 58ms (ActiveRecord: 10.5ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 11:17:04 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 111ms (Views: 104.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:17:44 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (31.4ms)
+Completed 200 OK in 83ms (Views: 77.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:21:36 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (54.7ms)
+Completed 200 OK in 159ms (Views: 121.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:21:37 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:21:37 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:21:37 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:21:37 -0400
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:22:33 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (3.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (280.6ms)
+Completed 500 Internal Server Error in 289ms (ActiveRecord: 4.0ms)
+
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007f92dc36f698>:0x007f92e0244878>):
+     5: <%= form_for @recommendation do |f| %>
+     6: 
+     7:   <select>
+     8:     <% User.all.each do user %>
+     9:       <option>user.name</option>
+    10:       <% end %>
+    11:   </select>
+  app/views/users/index.html.erb:8:in `block (2 levels) in _app_views_users_index_html_erb___3866233746588052858_70134401200820'
+  app/views/users/index.html.erb:8:in `block in _app_views_users_index_html_erb___3866233746588052858_70134401200820'
+  app/views/users/index.html.erb:5:in `_app_views_users_index_html_erb___3866233746588052858_70134401200820'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (20.8ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (44.5ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:22:54 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mProfile Load (1.7ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (89.6ms)
+Completed 500 Internal Server Error in 136ms (ActiveRecord: 3.7ms)
+
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007f92dc36f698>:0x007f92dd640fb0>):
+     5: <%= form_for @recommendation do |f| %>
+     6: 
+     7:   <select>
+     8:     <% Profile.all.each do user %>
+     9:       <option>user.name</option>
+    10:       <% end %>
+    11:   </select>
+  app/views/users/index.html.erb:8:in `block (2 levels) in _app_views_users_index_html_erb___3866233746588052858_70134378026440'
+  app/views/users/index.html.erb:8:in `block in _app_views_users_index_html_erb___3866233746588052858_70134378026440'
+  app/views/users/index.html.erb:5:in `_app_views_users_index_html_erb___3866233746588052858_70134378026440'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (20.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (43.3ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:23:34 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (85.6ms)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (undefined local variable or method `profile' for #<#<Class:0x007f92dc36f698>:0x007f92dcbcafe0>):
+     5: <%= form_for @recommendation do |f| %>
+     6: 
+     7:   <select>
+     8:     <% Profile.all.each do profile %>
+     9:       <option>profile.name</option>
+    10:       <% end %>
+    11:   </select>
+  app/views/users/index.html.erb:8:in `block (2 levels) in _app_views_users_index_html_erb___3866233746588052858_70134372647020'
+  app/views/users/index.html.erb:8:in `block in _app_views_users_index_html_erb___3866233746588052858_70134372647020'
+  app/views/users/index.html.erb:5:in `_app_views_users_index_html_erb___3866233746588052858_70134372647020'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (36.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (64.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (20.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (45.1ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:23:50 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  Rendered users/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms)
+
+SyntaxError (/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/users/index.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ndships_path(:friend_id => user), :method => :post );@output...
+...                               ^
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/users/index.html.erb:41: syntax error, unexpected =>, expecting keyword_end
+...:friend_id => user), :method => :post );@output_buffer.safe_...
+...                               ^
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/users/index.html.erb:51: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/users/index.html.erb:53: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/users/index.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/users/index.html.erb:41: syntax error, unexpected =>, expecting keyword_end
+  app/views/users/index.html.erb:51: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/users/index.html.erb:53: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (19.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (41.1ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:24:00 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (30.0ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (undefined local variable or method `profile' for #<#<Class:0x007f92dc36f698>:0x007f92e059be90>):
+     5: <%= form_for @recommendation do |f| %>
+     6: 
+     7:   <select>
+     8:     <% Profile.all.each do profile %>
+     9:       <option><%= profile.name %></option>
+    10:       <% end %>
+    11:   </select>
+  app/views/users/index.html.erb:8:in `block (2 levels) in _app_views_users_index_html_erb___3866233746588052858_70134402958040'
+  app/views/users/index.html.erb:8:in `block in _app_views_users_index_html_erb___3866233746588052858_70134402958040'
+  app/views/users/index.html.erb:5:in `_app_views_users_index_html_erb___3866233746588052858_70134402958040'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.9ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (17.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (37.5ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:24:37 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 63ms (Views: 57.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:24:37 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:24:37 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:24:37 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:24:37 -0400
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:25:09 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  Rendered users/index.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+SyntaxError (/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/users/index.html.erb:7: syntax error, unexpected ')', expecting keyword_end
+...( Profile.all.each do profile );@output_buffer.safe_append='
+...                               ^
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/users/index.html.erb:25: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end 
+             ^
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/users/index.html.erb:49: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/haleighharper/WDI/project4/ga_project4_tickletush_dating_app/app/views/users/index.html.erb:51: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/users/index.html.erb:7: syntax error, unexpected ')', expecting keyword_end
+  app/views/users/index.html.erb:25: syntax error, unexpected keyword_end, expecting ')'
+  app/views/users/index.html.erb:49: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/users/index.html.erb:51: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.7ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (25.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (117.2ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:25:20 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (34.4ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (undefined local variable or method `profile' for #<#<Class:0x007f92dc36f698>:0x007f92e0a43970>):
+    4: 
+    5: <%= form_for @recommendation do |f| %>
+    6: 
+    7: <% Profile.all.each do profile %>
+    8:   <%= profile.name %>
+    9: <% end %>
+   10: <%= f.label :first_match_id %>
+  app/views/users/index.html.erb:7:in `block (2 levels) in _app_views_users_index_html_erb___3866233746588052858_70134405400760'
+  app/views/users/index.html.erb:7:in `block in _app_views_users_index_html_erb___3866233746588052858_70134405400760'
+  app/views/users/index.html.erb:5:in `_app_views_users_index_html_erb___3866233746588052858_70134405400760'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (38.9ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (20.9ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (45.7ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:25:55 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (51.4ms)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 10.1ms)
+
+ActionView::Template::Error (undefined local variable or method `profile' for #<#<Class:0x007f92dbb623b0>:0x007f92dbb601f0>):
+    4: 
+    5: <%= form_for @recommendation do |f| %>
+    6: 
+    7: <% Profile.all.each do profile %>
+    8:   <%= profile.name %>
+    9: <% end %>
+   10: <%= f.label :first_match_id %>
+  app/views/users/index.html.erb:7:in `block (2 levels) in _app_views_users_index_html_erb___3866233746588052858_70134405400760'
+  app/views/users/index.html.erb:7:in `block in _app_views_users_index_html_erb___3866233746588052858_70134405400760'
+  app/views/users/index.html.erb:5:in `_app_views_users_index_html_erb___3866233746588052858_70134405400760'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (19.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (41.3ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:26:37 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mProfile Load (6.6ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.9ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (1.5ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 81ms (Views: 66.6ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:26:37 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:26:37 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:26:37 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:26:37 -0400
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:26:59 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mProfile Load (0.6ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 8]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 9]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 5]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 68ms (Views: 57.6ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:26:59 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:26:59 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:26:59 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:26:59 -0400
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:27:26 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mProfile Load (0.7ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.6ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (1.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (130.8ms)
+Completed 200 OK in 212ms (Views: 170.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:27:26 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:27:26 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:27:26 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:27:26 -0400
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:32:08 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (47.6ms)
+Completed 200 OK in 150ms (Views: 86.0ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:32:09 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:32:09 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:32:09 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:32:09 -0400
+
+
+Started POST "/recommendations" for ::1 at 2015-06-04 11:32:23 -0400
+Processing by RecommendationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IA9IHmCMSTISF9/a1knrCcfubQmvT5IhBKEIa9Rpdvugw1VcUbXEagwZKlfJB1Fql6vt6ZlsI5cm391fglflrA==", "first_match_id"=>"9", "second_match_id"=>"3", "recommendation"=>{"first_match_id"=>"", "second_match_id"=>"", "status_id"=>"1"}, "commit"=>"Make a match!"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "recommendations" ("status_id", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["status_id", 1], ["user_id", 5]]
+  [1m[35m (1.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/recommendations/5
+Completed 302 Found in 18ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 11:32:23 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.2ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 42ms (Views: 36.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:32:30 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 40ms (Views: 35.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:32:52 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (1.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 64ms (Views: 57.6ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:32:52 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:32:52 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:32:52 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:32:52 -0400
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:33:15 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.6ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 272ms (Views: 266.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:33:15 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:33:15 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:33:15 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:33:15 -0400
+
+
+Started POST "/recommendations" for ::1 at 2015-06-04 11:33:45 -0400
+Processing by RecommendationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8AmUyZeP6t8XXj0fO2OTPThB5SRJP2gqCQ3gyf85rYhwxYmLprZnhwlQyJIkLSleaARlxH8c2ZwrczX9qQc+3w==", "first_match_id"=>"5", "second_match_id"=>"5", "recommendation"=>{"first_match_id"=>"", "second_match_id"=>"", "status_id"=>"1"}, "commit"=>"Make a match!"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recommendations" ("status_id", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["status_id", 1], ["user_id", 5]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/recommendations/5
+Completed 302 Found in 10ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 11:33:45 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.2ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 47ms (Views: 41.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 11:36:07 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 148ms (Views: 109.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:36:08 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:36:08 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:36:08 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:36:08 -0400
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:36:09 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (1.2ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (6.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (63.0ms)
+Completed 200 OK in 125ms (Views: 105.3ms | ActiveRecord: 11.1ms)
+
+
+Started POST "/recommendations" for ::1 at 2015-06-04 11:36:13 -0400
+Processing by RecommendationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"POe6gqayS6kT3wb2tsHbeR9bMp/5LE+39ISWsMPCRQy8K6fAl4vG8Q3R83upj2EaTx6yf88P/gHW+kOElfzWWw==", ":first_match_id"=>"8", ":second_match_id"=>"8", "recommendation"=>{"first_match_id"=>"", "second_match_id"=>"", "status_id"=>"1"}, "commit"=>"Make a match!"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "recommendations" ("status_id", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["status_id", 1], ["user_id", 5]]
+  [1m[35m (1.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/recommendations/5
+Completed 302 Found in 19ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 11:36:13 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 37ms (Views: 32.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:37:26 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (40.9ms)
+Completed 200 OK in 124ms (Views: 97.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:38:08 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 67ms (Views: 60.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:38:08 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:38:08 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:38:08 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:38:08 -0400
+
+
+Started POST "/recommendations" for ::1 at 2015-06-04 11:38:12 -0400
+Processing by RecommendationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VeISNv7ncL5ifqs8J1X/ryaJ0YurEi5oJCJejNHGAEHVLg90z9795nxwXrE4G0XMdsxRa50xn94GXIu4h/iTFg==", ":first_match_id"=>"9", ":second_match_id"=>"8", "recommendation"=>{"first_match_id"=>"", "second_match_id"=>"", "status_id"=>"1"}, "commit"=>"Make a match!"}
+  [1m[36mUser Load (5.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recommendations" ("status_id", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["status_id", 1], ["user_id", 5]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/recommendations/5
+Completed 302 Found in 25ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 11:38:12 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 33ms (Views: 29.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:38:55 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 62ms (Views: 57.4ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/recommendations" for ::1 at 2015-06-04 11:38:56 -0400
+Processing by RecommendationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NP5PIlVSANAyYORzCyIZIj/ZyI0csANkzaHnO7xn1h20MlJgZGuNiCxuEf4UbKNBb5xIbSqTstLv3zIP6llFSg==", "first_match_id"=>"8", "second_match_id"=>"8", "recommendation"=>{"first_match_id"=>"", "second_match_id"=>"", "status_id"=>"1"}, "commit"=>"Make a match!"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (4.7ms)[0m  [1mINSERT INTO "recommendations" ("status_id", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["status_id", 1], ["user_id", 5]]
+  [1m[35m (1.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/recommendations/5
+Completed 302 Found in 17ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 11:38:56 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.6ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (2.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (2.6ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 70ms (Views: 56.8ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 11:44:19 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.2ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 127ms (Views: 66.7ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:44:19 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:44:19 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:44:19 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:44:19 -0400
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:44:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (31.7ms)
+Completed 200 OK in 57ms (Views: 51.8ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/recommendations" for ::1 at 2015-06-04 11:44:25 -0400
+Processing by RecommendationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5lqrJluz+zpicKwBE5ubvLrz3zNq7606lmlYtmhdZwRmlrZkaop2Ynx+WYwM1SHf6rZf01zMHIy0F42CPmP0Uw==", "first_match_id"=>"8", "second_match_id"=>"8", "recommendation"=>{"first_match_id"=>"", "second_match_id"=>"", "status_id"=>"1"}, "commit"=>"Make a match!"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recommendations" ("status_id", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["status_id", 1], ["user_id", 5]]
+  [1m[35m (1.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/recommendations/5
+Completed 302 Found in 11ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 11:44:25 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.2ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 34ms (Views: 27.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:44:43 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.5ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (209.6ms)
+Completed 200 OK in 239ms (Views: 233.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:46:43 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (65.1ms)
+Completed 200 OK in 173ms (Views: 136.4ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 11:46:43 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:46:43 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 11:46:44 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 11:46:44 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 11:46:44 -0400
+
+
+Started POST "/recommendations" for ::1 at 2015-06-04 11:46:47 -0400
+Processing by RecommendationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oMlBhaeOIfIEah2OZPESKR4AUlXjczh1Qr7U0yKmVEIgBVzHlresqhpk6AN7v6hKTkXStdVQicNgwAHndJjHFQ==", "recommendation"=>{"first_match_id"=>"", "second_match_id"=>"", "status_id"=>"1"}, "commit"=>"Make a match!"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "recommendations" ("status_id", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["status_id", 1], ["user_id", 5]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/recommendations/5
+Completed 302 Found in 18ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 11:46:47 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (1.1ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.7ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 51ms (Views: 44.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 11:55:40 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.6ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (48.4ms)
+Completed 200 OK in 137ms (Views: 108.2ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/recommendations" for ::1 at 2015-06-04 11:55:43 -0400
+Processing by RecommendationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fW5SRIBz/3eTkqXzHkIRNK+ejOL4c9S8fJ4CKkvL+jX9ok8GsUpyL42cUH4BDKtX/9sMAs5QZQpe4NceHfVpYg==", "first_match_id"=>{"first_match_id"=>"8"}, "second_match_id"=>{"second_match_id"=>"8"}, "recommendation"=>{"first_match_id"=>"", "second_match_id"=>"", "status_id"=>"1"}, "commit"=>"Make a match!"}
+  [1m[36mUser Load (10.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "recommendations" ("status_id", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["status_id", 1], ["user_id", 5]]
+  [1m[35m (1.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/recommendations/5
+Completed 302 Found in 35ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 11:55:43 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 40ms (Views: 35.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 12:23:11 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 112ms (Views: 77.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 12:23:11 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 12:23:11 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 12:23:11 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 12:23:11 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 12:23:11 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 12:23:11 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 12:23:11 -0400
+
+
+Started GET "/users" for ::1 at 2015-06-04 12:23:13 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.9ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (2.8ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (0.9ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.7ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.8ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (0.9ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (110.5ms)
+Completed 200 OK in 210ms (Views: 198.1ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/recommendations" for ::1 at 2015-06-04 12:23:14 -0400
+Processing by RecommendationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fCuTdeif55BVEjBF5VL2OqiBiizn9B6/ocIsfS5KDI3854432aZqyEscxcj6HExZ+MQKzNHXrwmDvPlJeHSf2g==", ":first_match_id"=>{"first_match_id"=>"8"}, ":second_match_id"=>{"second_match_id"=>"8"}, "recommendation"=>{"first_match_id"=>"", "second_match_id"=>"", "status_id"=>"1"}, "commit"=>"Make a match!"}
+  [1m[36mUser Load (6.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "recommendations" ("status_id", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["status_id", 1], ["user_id", 5]]
+  [1m[35m (2.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/recommendations/5
+Completed 302 Found in 34ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 12:23:14 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.8ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 5]]
+  [1m[36mProfile Load (0.9ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (1.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 69ms (Views: 57.8ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 12:27:35 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (10.1ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mProfile Load (1.9ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.9ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mProfile Load (3.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mProfile Load (0.6ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mProfile Load (0.5ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mProfile Load (1.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (74.5ms)
+Completed 200 OK in 157ms (Views: 110.8ms | ActiveRecord: 20.6ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:38:49 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.7ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 82ms (Views: 52.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-04 12:38:52 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.8ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 5 OR second_match_id = 5) AND status_id = 4)
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered accepted_recommendations/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 34ms (Views: 30.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:38:54 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 29ms (Views: 25.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-04 12:38:58 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 5 OR second_match_id = 5) AND status_id = 4)
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered accepted_recommendations/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 26ms (Views: 22.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:38:59 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (1.2ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (1.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 53ms (Views: 45.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-04 12:41:01 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.7ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 5 OR second_match_id = 5) AND status_id = 4)
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered accepted_recommendations/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 103ms (Views: 77.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-04 12:41:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mFriendship Load (8.9ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (5.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 5]]
+  Rendered users/show.html.erb within layouts/application (233.4ms)
+Completed 200 OK in 286ms (Views: 256.6ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/users" for ::1 at 2015-06-04 12:41:45 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 8]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 9]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 5]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (246.3ms)
+Completed 200 OK in 268ms (Views: 262.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/recommendations/5" for ::1 at 2015-06-04 12:41:47 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRecommendation Load (0.2ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  Rendered recommendations/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 31ms (Views: 26.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:41:50 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRecommendation Load (0.4ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)[0m
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mProfile Load (0.7ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 29ms (Views: 25.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-04 12:41:58 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRecommendation Load (0.4ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 5 OR second_match_id = 5) AND status_id = 4)[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  Rendered accepted_recommendations/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 24ms (Views: 21.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:42:17 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRecommendation Load (0.5ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 26ms (Views: 22.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-04 12:42:21 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRecommendation Load (0.4ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 5 OR second_match_id = 5) AND status_id = 4)[0m
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  Rendered accepted_recommendations/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:42:22 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRecommendation Load (0.5ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 45ms (Views: 38.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:43:55 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRecommendation Load (0.8ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)[0m
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  Rendered received_recommendations/index.html.erb within layouts/application (132.9ms)
+Completed 500 Internal Server Error in 164ms (ActiveRecord: 1.9ms)
+
+ActionView::Template::Error (undefined local variable or method `accepted_matches_path' for #<#<Class:0x007f92e3a9e728>:0x007f92e504a018>):
+    40: <p> id<%= recommendation.id %></p>
+    41: 
+    42: <%if recommendation.status_id == 4 %>
+    43: <% redirect_to accepted_matches_path %>
+    44: <% end %>
+    45: 
+    46: <!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
+  app/views/received_recommendations/index.html.erb:43:in `block in _app_views_received_recommendations_index_html_erb__1655885750979554989_70134442116680'
+  app/views/received_recommendations/index.html.erb:4:in `_app_views_received_recommendations_index_html_erb__1655885750979554989_70134442116680'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (38.9ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (3.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (28.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (61.4ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-04 12:44:15 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.5ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 5 OR second_match_id = 5) AND status_id = 4)
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered accepted_recommendations/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 53ms (Views: 49.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 12:44:15 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 12:44:15 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 12:44:15 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 12:44:15 -0400
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:44:18 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  Rendered received_recommendations/index.html.erb within layouts/application (24.4ms)
+Completed 500 Internal Server Error in 204ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (undefined method `redirect_to' for #<#<Class:0x007f92e3a9e728>:0x007f92e5950928>):
+    40: <p> id<%= recommendation.id %></p>
+    41: 
+    42: <%if recommendation.status_id == 4 %>
+    43: <% redirect_to accepted_recommendations_path %>
+    44: <% end %>
+    45: 
+    46: <!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
+  app/views/received_recommendations/index.html.erb:43:in `block in _app_views_received_recommendations_index_html_erb__1655885750979554989_70134435347240'
+  app/views/received_recommendations/index.html.erb:4:in `_app_views_received_recommendations_index_html_erb__1655885750979554989_70134435347240'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (18.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (83.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (2.7ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (22.2ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (49.3ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:44:18 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRecommendation Load (0.4ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  Rendered received_recommendations/index.html.erb within layouts/application (26.6ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (undefined method `redirect_to' for #<#<Class:0x007f92e3a9e728>:0x007f92e4174160>):
+    40: <p> id<%= recommendation.id %></p>
+    41: 
+    42: <%if recommendation.status_id == 4 %>
+    43: <% redirect_to accepted_recommendations_path %>
+    44: <% end %>
+    45: 
+    46: <!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
+  app/views/received_recommendations/index.html.erb:43:in `block in _app_views_received_recommendations_index_html_erb__1655885750979554989_70134434363000'
+  app/views/received_recommendations/index.html.erb:4:in `_app_views_received_recommendations_index_html_erb__1655885750979554989_70134434363000'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.2ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (31.4ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:45:22 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.6ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  Rendered received_recommendations/index.html.erb within layouts/application (109.1ms)
+Completed 500 Internal Server Error in 144ms (ActiveRecord: 2.0ms)
+
+ActionView::Template::Error (undefined method `redirect_to' for #<#<Class:0x007f92e3a9e728>:0x007f92dcc33db0>):
+    40: <p> id<%= recommendation.id %></p>
+    41: 
+    42: <%if recommendation.status_id == 4 %>
+    43: <% redirect_to "/accepted_recommendations" %>
+    44: <% end %>
+    45: 
+    46: <!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
+  app/views/received_recommendations/index.html.erb:43:in `block in _app_views_received_recommendations_index_html_erb__1655885750979554989_70134372880860'
+  app/views/received_recommendations/index.html.erb:4:in `_app_views_received_recommendations_index_html_erb__1655885750979554989_70134372880860'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (35.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (27.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (51.4ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:45:59 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRecommendation Load (0.4ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 2]]
+  Rendered received_recommendations/index.html.erb within layouts/application (147.1ms)
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (undefined method `redirect_to' for #<#<Class:0x007f92e3a9e728>:0x007f92e700bb40>):
+    40: <p> id<%= recommendation.id %></p>
+    41: 
+    42: <%if recommendation.status_id == 4 %>
+    43: <% redirect_to "/accepted_recommendations" %>
+    44: <% end %>
+    45: 
+    46: <!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
+  app/views/received_recommendations/index.html.erb:43:in `block in _app_views_received_recommendations_index_html_erb__1655885750979554989_70134372880860'
+  app/views/received_recommendations/index.html.erb:4:in `_app_views_received_recommendations_index_html_erb__1655885750979554989_70134372880860'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (19.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (42.3ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:46:06 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.8ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (1.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.6ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 56ms (Views: 44.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 12:46:06 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 12:46:06 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 12:46:06 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 12:46:06 -0400
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:47:49 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.6ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.5ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 97ms (Views: 70.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 12:47:49 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 12:47:49 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 12:47:49 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 12:47:49 -0400
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-04 12:47:52 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 5 OR second_match_id = 5) AND status_id = 4)
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered accepted_recommendations/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 32ms (Views: 29.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-04 12:47:56 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.6ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 5 OR second_match_id = 5) AND status_id = 4)
+  [1m[36mProfile Load (0.5ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered accepted_recommendations/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 32ms (Views: 28.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:47:59 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 39ms (Views: 36.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:48:16 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (2.5ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 45ms (Views: 39.8ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 12:48:16 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 12:48:16 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 12:48:16 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 12:48:16 -0400
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:48:33 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.6ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 42ms (Views: 38.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 12:48:33 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 12:48:33 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 12:48:33 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 12:48:33 -0400
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:48:56 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.5ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 51ms (Views: 47.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 12:48:56 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 12:48:56 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 12:48:56 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 12:48:56 -0400
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:49:58 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 52ms (Views: 47.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 12:49:58 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 12:49:58 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 12:49:58 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 12:49:58 -0400
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:50:21 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.6ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 65ms (Views: 60.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 12:50:21 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 12:50:21 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-04 12:50:21 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-04 12:50:21 -0400
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-04 12:50:25 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.8ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 5 OR second_match_id = 5) AND status_id = 4)
+  [1m[36mProfile Load (0.7ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered accepted_recommendations/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 38ms (Views: 33.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:50:27 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 41ms (Views: 37.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-04 12:50:32 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 5 OR second_match_id = 5) AND status_id = 4)
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered accepted_recommendations/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 28ms (Views: 24.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-04 12:50:35 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 5 OR second_match_id = 5)
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  Rendered received_recommendations/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 1.0ms)

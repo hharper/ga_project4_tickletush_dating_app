@@ -12,7 +12,10 @@
         <%= @profile_two.name %> HAS BEEN RECOMMENDED TO ME
       <% end %>
     <% end %>
-
+  </br>
+    <%if recommendation.status_id == 4 %>
+    <a href="/accepted_recommendations">YOU'VE MATCHED!</a>
+    <% end %>
 
 <form action="/recommendations/<%=recommendation.id %>/accept_second_match" method="patch">
   <input type="submit" value="Accept">
@@ -27,6 +30,10 @@
         <%= @profile_one.name %> HAS BEEN RECOMMENDED TO ME
         <% end %>
         <% end %>
+      </br>
+        <%if recommendation.status_id == 4 %>
+        <a href="/accepted_recommendations">YOU'VE MATCHED!</a>
+        <% end %>
 <form action="/recommendations/<%=recommendation.id %>/accept_first_match" method="patch">
   <input type="submit" value="Accept">
 </form>
@@ -38,7 +45,6 @@
 
 <p> status<%= recommendation.status_id %></p>
 <p> id<%= recommendation.id %></p>
-
 
 <!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
 </br>
