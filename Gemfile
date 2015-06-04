@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+gem 'rails_12factor', group: :production
+gem 'heroku'
 gem 'pry'
 gem 'koala'
 gem 'omniauth-facebook'
