@@ -16,14 +16,7 @@
   <% end %>
 </select>
 
- </br>
-  <%= f.label :first_match_id %>:
-  <%= f.text_field :first_match_id %><br />
-
-  <%= f.label :second_match_id %>:
-  <%= f.text_field :second_match_id %><br />
-
-  <%= f.hidden_field:status_id, :value => 1 %>
+  <%= hidden_field_tag(:status_id, "1") %>
 
   <%= f.submit "Make a match!"%>
 <% end %>

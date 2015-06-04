@@ -18,7 +18,9 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-    @recommendation = current_user.recommendations.create(recommendation_params)
+    # @recommendation = current_user.recommendations.create(recommendation_params)
+
+    @recommendation = current_user.recommendations.create(:second_match_id => params[:second_match_id], :first_match_id => params[:first_match_id], :status_id => params[:status_id])
     # if @recommendation = Recommendation.create(recommendation_params)
       # flash[:notice] = "Added recommendation"
       redirect_to recommendation_path(current_user)
