@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
       get "accept_first_match"
       get "accept_second_match"
+      get "decline"
     end
   end
   resources :comments
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :profiles
     # get :recomended_as_match, on: :collection
-
   end
   # resources :profiles
   resources :friendships

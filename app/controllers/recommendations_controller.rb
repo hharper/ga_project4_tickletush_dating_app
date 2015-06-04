@@ -3,6 +3,9 @@ class RecommendationsController < ApplicationController
 
   def index
    @recommendations = Recommendation.all
+  #  @profile_one = Profile.where("user_id = recommendation.first_match_id")
+  #  @first_user = Recommendation.first_match_id
+  #  @profile_one = Profile.where("user_id = @first_user")
   end
 
   def show
@@ -55,7 +58,11 @@ class RecommendationsController < ApplicationController
   end
 
   def decline
-    @recommendations = current_user.decline
+    @recommendation = Recommendation.find(params[:id])
+    if @recommendation.destroy
+      flash[:notice] = "Successfully removed this recommendation"
+      redirect_to received_recommendations_path
+  end
   end
 
   private

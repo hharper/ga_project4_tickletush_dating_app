@@ -17,7 +17,7 @@
 </form>
 
 <% end %>
-<form action="/recommendations/decline" method="patch">
+<form action="/recommendations/<%=recommendation.id %>/decline" method="patch">
   <input type="submit" value="Decline">
 </form>
 
