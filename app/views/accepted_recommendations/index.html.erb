@@ -9,6 +9,8 @@
   <% if @second_user %>
     <% @profile_two = Profile.find_by(user_id: @second_user) %>
       <% if @profile_two %>
+      <img src="<%= @profile_two.photo_url %>">
+    </br>
       <%= @profile_two.name %> HAS BEEN RECOMMENDED TO ME AND HE/SHE LIKES ME
     <% end %>
   <% end %>
@@ -21,6 +23,8 @@
     <% if @first_user %>
     <% @profile_one = Profile.find_by(user_id: @first_user) %>
       <% if @profile_one %>
+      <img src="<%= @profile_one.photo_url %>">
+    </br>
       <%= @profile_one.name %> HAS BEEN RECOMMENDED TO ME AND HE/SHE LIKES ME
       <% end %>
     <% end %>
