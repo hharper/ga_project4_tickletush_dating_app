@@ -8,7 +8,6 @@ class Recommendation < ActiveRecord::Base
   }
 
   def accept_first_match
-    binding.pry
     if self.status_id == 1
       update_column(:status_id, STATUS[:first_match_accepted])
     else
@@ -17,7 +16,6 @@ class Recommendation < ActiveRecord::Base
   end
 
   def accept_second_match
-    binding.pry
     if self.status_id == 1
       update_column(:status_id, STATUS[:second_match_accepted])
     else

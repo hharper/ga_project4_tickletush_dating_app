@@ -1,5 +1,26 @@
-<h1> MY RECOMMENDATIONS (Recommendations that I, the User, have made) </h1>
+<h3> MY RECOMMENDATIONS (Recommendations that I, the User, have made)</h3>
+<% for recommendation in @recommendations %>
+    I HAVE RECOMMENDED:
+    <% @first_user = recommendation.first_match_id %>
+      <% if @first_user %>
+        <% @profile_one = Profile.find_by(user_id: @first_user) %>
+          <% if @profile_one %>
+          <%= @profile_one.name %> TO
+          <% end %>
+        <% end %>
+
+    <% @second_user = recommendation.second_match_id %>
+      <% if @second_user %>
+      <% @profile_two = Profile.find_by(user_id: @second_user) %>
+        <% if @profile_two %>
+          <%= @profile_two.name %>
+          <% end %>
+        <% end %>
+</br>
+<% end %>
+
+<!-- <h1> MY RECOMMENDATIONS (Recommendations that I, the User, have made) </h1>
   <% for recommendation in @recommendations %>
   I HAVE RECOMMENDED <%= recommendation.first_match_id %> TO <%= recommendation.second_match_id %>
   </br>
-<% end %>
+<% end %> -->

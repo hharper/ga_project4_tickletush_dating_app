@@ -4,12 +4,29 @@
 <% for recommendation in @recommendations %>
 
 <% if recommendation.first_match_id == current_user.id %>
-<%= recommendation.second_match_id %> HAS BEEN RECOMMENDED TO ME AND THEY LIKE ME
+<!-- <%= recommendation.second_match_id %> HAS BEEN RECOMMENDED TO ME AND THEY LIKE ME -->
+<% @second_user = recommendation.second_match_id %>
+  <% if @second_user %>
+    <% @profile_two = Profile.find_by(user_id: @second_user) %>
+      <% if @profile_two %>
+      <%= @profile_two.name %> HAS BEEN RECOMMENDED TO ME AND HE/SHE LIKES ME
+    <% end %>
+  <% end %>
+
+
+
 <% else recommendation.second_match_id == current_user.id %>
-<%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO ME AND THEY LIKE ME
+<!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO ME AND THEY LIKE ME -->
+  <% @first_user = recommendation.first_match_id %>
+    <% if @first_user %>
+    <% @profile_one = Profile.find_by(user_id: @first_user) %>
+      <% if @profile_one %>
+      <%= @profile_one.name %> HAS BEEN RECOMMENDED TO ME AND HE/SHE LIKES ME
+      <% end %>
+    <% end %>
 <% end %>
 </br>
 
-<%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %>
-</br>
+<!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
+
 <% end %>

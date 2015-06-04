@@ -1,23 +1,26 @@
-<h3>ALL Recommendations</h3>
+<h3> ALL RECOMMENDATIONS </h3>
+<% for recommendation in @recommendations %>
+  <!-- <%= recommendation.first_match_id.inspect %> -->
+    <% @first_user = recommendation.first_match_id %>
+      <% if @first_user %>
+        <% @profile_one = Profile.find_by(user_id: @first_user) %>
+          <% if @profile_one %>
+          <%= @profile_one.name %> HAS BEEN MATCHED TO
+          <% end %>
+        <% end %>
+
+    <% @second_user = recommendation.second_match_id %>
+      <% if @second_user %>
+      <% @profile_two = Profile.find_by(user_id: @second_user) %>
+        <% if @profile_two %>
+          <%= @profile_two.name %>
+          <% end %>
+        <% end %>
+</br>
+<% end %>
+
+<!-- <h3>ALL Recommendations</h3>
 <% for recommendation in @recommendations %>
 <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %>
 </br>
-<% end %>
-
-<h3> RECOMMENDATIONS </h3>
-<% for recommendation in @recommendations %>
-  <%= recommendation.first_match_id.inspect %>
-    <% @first_user = recommendation.first_match_id %>
-    <% if @first_user %>
-    <% @profile_one = Profile.find_by(user_id: @first_user) %>
-    <% if @profile_one %>
-    <%= @profile_one.name %>
-    <% end %>
-    <% end %>
-
-  HAS BEEN MATCHED TO
-    <% @second_user = recommendation.second_match_id %>
-    <% @profile_two = Profile.where("user_id = @second_user") %>
-    <%= @profile_two %>
-</br>
-<% end %>
+<% end %> -->
