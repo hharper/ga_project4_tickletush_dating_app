@@ -1,5 +1,7 @@
-<h1> My Accepted Recommendations </h1>
-<p>Username: <%= current_user.email %> ID:<%= current_user.id %></p>
+<h1> My Accepted Matches </h1>
+<p>Username: <%= current_user.email %>
+  <!-- ID:<%= current_user.id %> -->
+</p>
 
 <% for recommendation in @recommendations %>
 
@@ -11,7 +13,9 @@
       <% if @profile_two %>
       <img src="<%= @profile_two.photo_url %>">
     </br>
-      <%= @profile_two.name %> HAS BEEN RECOMMENDED TO ME AND HE/SHE LIKES ME
+      <%= @profile_two.name %> likes me too!
+    </br>
+      <strong><a href='#'>Tickle that Tush</a></strong>
     <% end %>
   <% end %>
 
@@ -25,7 +29,9 @@
       <% if @profile_one %>
       <img src="<%= @profile_one.photo_url %>">
     </br>
-      <%= @profile_one.name %> HAS BEEN RECOMMENDED TO ME AND HE/SHE LIKES ME
+      <%= @profile_one.name %> likes me too!
+    </br>
+      <strong><a href='#'>Tickle that Tush</a></strong>
       <% end %>
     <% end %>
 <% end %>

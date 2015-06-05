@@ -1,4 +1,4 @@
-<p>Username: <%= current_user.email %> ID:<%= current_user.id %></p>
+<!-- <p>Username: <%= current_user.email %> ID:<%= current_user.id %></p> -->
 
 <h1> Make a Match: </h1>
 
@@ -22,18 +22,20 @@
 <% end %>
 
 
-<h1> User List </h1>
+<h1> Friend List </h1>
 <% for user in @users %>
     <p>
       <img src="<%= user.profile.photo_url %>">
     </br>
-      <strong><%= user.profile.name %> </br><%= user.email %></strong> <strong><%= user.id %></strong>
-    </br>
+      <strong><%= user.profile.name %> </br>
+        <!-- <%= user.email %></strong>
+        <strong><%= user.id %> -->
+        </strong>
       Current City: <%= user.profile.city %>
     </br>
       Interests: <%= user.profile.interests %>
 
-      <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+      <!-- <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %> -->
 
 <!--
       <%= link_to "Recommend", recommendations_path(:recommended_id => user), :method => :post %>

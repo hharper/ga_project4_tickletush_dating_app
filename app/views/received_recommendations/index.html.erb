@@ -1,7 +1,7 @@
 <h1> My Pending Matches </h1>
 
 
-<p>Username: <%= current_user.email %> ID:<%= current_user.id %></p>
+<!-- <p>Username: <%= current_user.email %> ID:<%= current_user.id %></p> -->
 <div class="row">
     <section class="col-md-4">
 <% for recommendation in @recommendations %>
@@ -34,8 +34,12 @@
       <% @profile_one = Profile.find_by(user_id: @first_user) %>
         <% if @profile_one %>
         <img src="<%= @profile_one.photo_url %>">
+      </br>
+        <strong><%= @profile_one.name %></strong> has been recommended to me by <% @recommender = recommendation.user_id %>
+        <% @recommender = Profile.find_by(user_id: @recommender) %>
+        <%= @recommender.name %>
+
           </br>
-        <%= @profile_one.name %> HAS BEEN RECOMMENDED TO ME
         <% end %>
         <% end %>
       </br>
@@ -51,8 +55,8 @@
   <input type="submit" value="Decline">
 </form>
 
-<p> status<%= recommendation.status_id %></p>
-<p> id<%= recommendation.id %></p>
+<!-- <p> status<%= recommendation.status_id %></p>
+<p> id<%= recommendation.id %></p> -->
 
 <!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
 </br>

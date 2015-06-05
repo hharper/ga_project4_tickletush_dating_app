@@ -1,4 +1,4 @@
-<h3> ALL RECOMMENDATIONS </h3>
+<h1> ALL RECOMMENDATIONS </h1>
 <% for recommendation in @recommendations %>
   <!-- <%= recommendation.first_match_id.inspect %> -->
     <% @first_user = recommendation.first_match_id %>
@@ -7,7 +7,8 @@
           <% if @profile_one %>
           <img src="<%= @profile_one.photo_url %>">
             </br>
-          <%= @profile_one.name %> HAS BEEN MATCHED TO
+          <%= @profile_one.name %>
+          <!-- HAS BEEN MATCHED TO -->
           <% end %>
         <% end %>
 
