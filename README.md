@@ -1,5 +1,7 @@
 # ga_project4_tickletush_dating_app
 
+https://tickletush.herokuapp.com/
+
 TickleTush:
 
 Are you unsatisfied with current dating app options? Its pretty awkward to have to describe yourself and then wait around for matches, huh? And pretty discouraging when you don't match. And pretty intimidating thinking about potentially dating a complete stranger lurking behind their online profile. If only you could ensure that you were only dating decent humans who compatible with you -- decided not by some fancy algorithm but by those you know you best -- your friends!!
