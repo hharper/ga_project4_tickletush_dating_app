@@ -1,6 +1,9 @@
 <h1> My Pending Matches </h1>
-<p>Username: <%= current_user.email %> ID:<%= current_user.id %></p>
 
+
+<p>Username: <%= current_user.email %> ID:<%= current_user.id %></p>
+<div class="row">
+    <section class="col-md-4">
 <% for recommendation in @recommendations %>
 
 <% if recommendation.first_match_id == current_user.id %>
@@ -53,4 +56,6 @@
 
 <!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
 </br>
+</section>
+</div>
 <% end %>
