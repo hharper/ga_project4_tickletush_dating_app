@@ -23,24 +23,11 @@
 
 
 <h1> Friend List </h1>
-<% for user in @users %>
-    <p>
-      <img src="<%= user.profile.photo_url %>">
-    </br>
-      <strong><%= user.profile.name %> </br>
-        <!-- <%= user.email %></strong>
-        <strong><%= user.id %> -->
-        </strong>
-      Current City: <%= user.profile.city %>
-    </br>
-      Interests: <%= user.profile.interests %>
-
-      <!-- <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %> -->
-
-<!--
-      <%= link_to "Recommend", recommendations_path(:recommended_id => user), :method => :post %>
-      <%= link_to "Recommend as first match", recommendations_path(:first_match_id => user), :method => :post %>
-      <%= link_to "Recommend as second match", recommendations_path(:secondMatch_id => user), :method => :post %> -->
-    </p>
-
-<% end %>
+<% Profile.all.each do |profile| %>
+<p>
+  <img src="<%= profile.photo_url %>?type=large">
+</br>
+  <strong><%= profile.name %></strong>
+</br>
+</p>
+    <% end %>

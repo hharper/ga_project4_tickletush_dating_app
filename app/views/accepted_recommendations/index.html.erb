@@ -11,7 +11,7 @@
   <% if @second_user %>
     <% @profile_two = Profile.find_by(user_id: @second_user) %>
       <% if @profile_two %>
-      <img src="<%= @profile_two.photo_url %>">
+      <img src="<%= @profile_two.photo_url %>?type=large">
     </br>
       <%= @profile_two.name %> likes me too!
     </br>
@@ -27,7 +27,7 @@
     <% if @first_user %>
     <% @profile_one = Profile.find_by(user_id: @first_user) %>
       <% if @profile_one %>
-      <img src="<%= @profile_one.photo_url %>">
+      <img src="<%= @profile_one.photo_url %>?type=large">
     </br>
       <%= @profile_one.name %> likes me too!
     </br>

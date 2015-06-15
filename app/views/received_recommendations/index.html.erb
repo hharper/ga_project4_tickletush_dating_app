@@ -12,7 +12,7 @@
     <% if @second_user %>
       <% @profile_two = Profile.find_by(user_id: @second_user) %>
         <% if @profile_two %>
-        <img src="<%= @profile_two.photo_url %>">
+        <img src="<%= @profile_two.photo_url %>?type=large">
       </br>
         <%= @profile_two.name %>
         HAS BEEN RECOMMENDED TO ME
@@ -33,7 +33,7 @@
       <% if @first_user %>
       <% @profile_one = Profile.find_by(user_id: @first_user) %>
         <% if @profile_one %>
-        <img src="<%= @profile_one.photo_url %>">
+        <img src="<%= @profile_one.photo_url %>?type=large">
       </br>
         <strong><%= @profile_one.name %></strong> has been recommended to me by <% @recommender = recommendation.user_id %>
         <% @recommender = Profile.find_by(user_id: @recommender) %>
