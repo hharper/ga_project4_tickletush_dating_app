@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name   # assuming the user model has a name...CHANGE THIS TO PROFILE
       user.image = auth.info.image # assuming the user model has an image...CHANGE THIS TO PROFILE
-      user.create_profile!(name: auth.info.name, photo_url: auth.info.image)
+      user.create_profile!(name: auth.info.name, photo_url: auth.info.image, city: auth.info.location)
       # profile.photo_url = auth.info.image
       # profile.name = auth.info.name
     end

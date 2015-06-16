@@ -43839,3 +43839,1385 @@ Processing by ReceivedRecommendationsController#index as HTML
   [1m[36mProfile Load (0.6ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 5]]
   Rendered received_recommendations/index.html.erb within layouts/application (15.1ms)
 Completed 200 OK in 119ms (Views: 84.9ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 11:46:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 305ms (Views: 284.3ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 11:46:35 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mFriendship Load (0.3ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 5]]
+  Rendered users/show.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 98ms (Views: 53.6ms | ActiveRecord: 4.1ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 11:46:36 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KlFo9WTuW0W6cimEroKMzYOC30qFhp9z0qE0N6gbYRO4S7SVJmjdiBo150cIX5m4aXLgT89OK5dfWkqDqxQpiw=="}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 30ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 11:46:36 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 11:46:37 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 11:46:38 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQAMPTc7IlFlAPpW5ze6qBpSxE3pete1u7JRJoVc4qbF2zY1PexsZaTVdNTytXosawaDUCpUiP1xyuNr-oiMtzjT70wuG0N3XPBMb8ILxW_KphdlHWHY3ht9jFihmkIzn68cAbmEhwq4Wv5I3uz0WJCfy8_XTG2oN-tpA4xyXUwGb7jVavcjNkQWb-7Cu7Qhd522ItXDDBWiXvR-aCwpSaAb8zlpp_rGkL0cUjBuJ1uAZjsziHj25lvVFQ7ddZQ31BpvyBOW8lmzYs7_k4_-7M5UlQ24xN_WiPnMM9yFxVxP6cGmFSLHOYwWF7f1yyeV434&state=d9617b57ff33bbe22a0b38c77cea06a4da7b0dfa668e6c79" for ::1 at 2015-06-16 11:46:38 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQAMPTc7IlFlAPpW5ze6qBpSxE3pete1u7JRJoVc4qbF2zY1PexsZaTVdNTytXosawaDUCpUiP1xyuNr-oiMtzjT70wuG0N3XPBMb8ILxW_KphdlHWHY3ht9jFihmkIzn68cAbmEhwq4Wv5I3uz0WJCfy8_XTG2oN-tpA4xyXUwGb7jVavcjNkQWb-7Cu7Qhd522ItXDDBWiXvR-aCwpSaAb8zlpp_rGkL0cUjBuJ1uAZjsziHj25lvVFQ7ddZQ31BpvyBOW8lmzYs7_k4_-7M5UlQ24xN_WiPnMM9yFxVxP6cGmFSLHOYwWF7f1yyeV434", "state"=>"d9617b57ff33bbe22a0b38c77cea06a4da7b0dfa668e6c79"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "facebook"], ["uid", "10204796129525558"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.1ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5  [["last_sign_in_at", "2015-06-16 02:57:26.365585"], ["current_sign_in_at", "2015-06-16 15:46:38.344323"], ["sign_in_count", 5], ["updated_at", "2015-06-16 15:46:38.346063"], ["id", 5]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 11:46:38 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 11:46:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 5]]
+  [1m[36mFriendship Load (0.2ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 5]]
+  Rendered users/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 11:46:45 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 11:47:44 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 29ms (Views: 28.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 11:47:48 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 11:47:54 -0400
+
+
+Started GET "/" for ::1 at 2015-06-16 11:48:00 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 51ms (Views: 50.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 11:48:05 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 11:48:08 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 11:48:13 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQAB9c8uen_VxWt_IX7zxjaCAMdov9J1WWEo5n0U4cOaF_A95ySXXHIVmgGpj1fiWVl-cgM9tVkuvA91YlIWim0Um-zlrfKfuMZLPkS3xB6V1IP9JienPQFWfl7OGMHhNUiya1ksqCmudpoEkrl_bn4sfTn5HmCHwkprwdCiND8NV97YmQaJyf0twIm_sJWzjlKbTusTKATm-fmsr2CVXSr-zXnEoo-OhCB465KDNO3DnScCtQbhm3BkLNweJdA3YU_xDuX1wEIUoFVWnkOtXtx0VThDv48oDUfnGAx1XCd8FKaktwLinX0lOVC7qEbKtLs&state=7eac7ce1d2cb30c04e99002ead537fd8a744ac524160d13f" for ::1 at 2015-06-16 11:48:13 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQAB9c8uen_VxWt_IX7zxjaCAMdov9J1WWEo5n0U4cOaF_A95ySXXHIVmgGpj1fiWVl-cgM9tVkuvA91YlIWim0Um-zlrfKfuMZLPkS3xB6V1IP9JienPQFWfl7OGMHhNUiya1ksqCmudpoEkrl_bn4sfTn5HmCHwkprwdCiND8NV97YmQaJyf0twIm_sJWzjlKbTusTKATm-fmsr2CVXSr-zXnEoo-OhCB465KDNO3DnScCtQbhm3BkLNweJdA3YU_xDuX1wEIUoFVWnkOtXtx0VThDv48oDUfnGAx1XCd8FKaktwLinX0lOVC7qEbKtLs", "state"=>"7eac7ce1d2cb30c04e99002ead537fd8a744ac524160d13f"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "facebook"], ["uid", "10204796129525558"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (2.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'heh2xm@virginia.edu' LIMIT 1[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO "users" ("provider", "uid", "email", "encrypted_password", "name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["provider", "facebook"], ["uid", "10204796129525558"], ["email", "heh2xm@virginia.edu"], ["encrypted_password", "$2a$10$d/LLn5vkwdj3Z1rxIWuY0uzFC3MSWPLWUIZ2hi3sHKSB/DJFk7bv."], ["name", "Haleigh Harper"], ["image", "http://graph.facebook.com/10204796129525558/picture"], ["created_at", "2015-06-16 15:48:20.574644"], ["updated_at", "2015-06-16 15:48:20.574644"]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 6]]
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "profiles" ("name", "photo_url") VALUES ($1, $2) RETURNING "id"  [["name", "Haleigh Harper"], ["photo_url", "http://graph.facebook.com/10204796129525558/picture"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "profiles" SET "user_id" = $1 WHERE "profiles"."id" = $2[0m  [["user_id", 6], ["id", 4]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-06-16 15:48:20.591279"], ["current_sign_in_at", "2015-06-16 15:48:20.591279"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2015-06-16 15:48:20.592315"], ["id", 6]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 113ms (ActiveRecord: 14.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 11:48:20 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 11:48:27 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mFriendship Load (0.2ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 6]]
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 26ms (Views: 21.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for ::1 at 2015-06-16 11:48:35 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "profiles".* FROM "profiles"
+  Rendered users/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 58ms (Views: 41.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/recommendations/6" for ::1 at 2015-06-16 11:48:38 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 6]]
+  Rendered recommendations/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 27ms (Views: 22.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-16 11:48:39 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 6 OR second_match_id = 6)
+  Rendered received_recommendations/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-16 11:48:40 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 6 OR second_match_id = 6) AND status_id = 4)
+  Rendered accepted_recommendations/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 11:48:41 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 6]]
+  [1m[36mFriendship Load (0.3ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 6]]
+  Rendered users/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 24ms (Views: 20.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 11:59:38 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+Completed 200 OK in 48ms (Views: 45.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 11:59:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 218ms (Views: 209.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:00:00 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:00:00 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQCgVrR4xS18cE5tK8RtNrMSBuutY6kUiTtQU9O3sJkHOWw-NMvs_tj8PQ-45uKVscv9mt3l7-uaE0vH_xLhwByAR0jBaGBmUIblCrgLLSYLWsv9k2Pg5_ap29eVIS2sHPZlXUM_H-Kvf5KDyogzQnmesYrIIJ26f5f76v-3t3RhLK6RVYmq9--l9WrmKkju8q2KXXqQZsoMZTnYGc44yiLtyRbTXDRXwFjuRaYo4fIafEV47CMfIkuy2aKjdM5W8SvcKz0NPMwG_Sla7HNZqJdsr33uBms09qNPHIx_5RwEf-P9iNE9o928_WIzlaVQwQU&state=240018c7d2fe4671fd68ec6dad78f754ee832d38dd7cc16c" for ::1 at 2015-06-16 12:00:08 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQCgVrR4xS18cE5tK8RtNrMSBuutY6kUiTtQU9O3sJkHOWw-NMvs_tj8PQ-45uKVscv9mt3l7-uaE0vH_xLhwByAR0jBaGBmUIblCrgLLSYLWsv9k2Pg5_ap29eVIS2sHPZlXUM_H-Kvf5KDyogzQnmesYrIIJ26f5f76v-3t3RhLK6RVYmq9--l9WrmKkju8q2KXXqQZsoMZTnYGc44yiLtyRbTXDRXwFjuRaYo4fIafEV47CMfIkuy2aKjdM5W8SvcKz0NPMwG_Sla7HNZqJdsr33uBms09qNPHIx_5RwEf-P9iNE9o928_WIzlaVQwQU", "state"=>"240018c7d2fe4671fd68ec6dad78f754ee832d38dd7cc16c"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "facebook"], ["uid", "10204796129525558"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'heh2xm@virginia.edu' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "email", "encrypted_password", "name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["provider", "facebook"], ["uid", "10204796129525558"], ["email", "heh2xm@virginia.edu"], ["encrypted_password", "$2a$10$Kdnr7/1UlK51f0Q4Gm3you29R8DpixLxSfJTW/H7n5up4FTjjKA5G"], ["name", "Haleigh Harper"], ["image", "http://graph.facebook.com/10204796129525558/picture"], ["created_at", "2015-06-16 16:00:08.557842"], ["updated_at", "2015-06-16 16:00:08.557842"]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "profiles" ("name", "photo_url") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Haleigh Harper"], ["photo_url", "http://graph.facebook.com/10204796129525558/picture"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "profiles" SET "user_id" = $1 WHERE "profiles"."id" = $2  [["user_id", 7], ["id", 5]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2015-06-16 16:00:08.572867"], ["current_sign_in_at", "2015-06-16 16:00:08.572867"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2015-06-16 16:00:08.574075"], ["id", 7]]
+  [1m[35m (1.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 192ms (ActiveRecord: 13.8ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:00:08 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 12:00:12 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (112.6ms)
+Completed 200 OK in 137ms (Views: 130.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-16 12:00:51 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mRecommendation Load (0.5ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 7 OR second_match_id = 7) AND status_id = 4)[0m
+  Rendered accepted_recommendations/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 29ms (Views: 20.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-16 12:00:52 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mRecommendation Load (0.4ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 7 OR second_match_id = 7)[0m
+  Rendered received_recommendations/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/recommendations/7" for ::1 at 2015-06-16 12:00:53 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mRecommendation Load (0.2ms)[0m  [1mSELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1[0m  [["user_id", 7]]
+  Rendered recommendations/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 25ms (Views: 21.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2015-06-16 12:00:54 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  Rendered users/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 30ms (Views: 23.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 12:00:56 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 7]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 22ms (Views: 17.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:00:59 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+Completed 200 OK in 22ms (Views: 21.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:04:41 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+Completed 200 OK in 48ms (Views: 45.1ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 12:04:43 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xIDUyJWUr+QR/BcFdACbfpLwlXnFNW+102vWuSbt/w47Hw1/wYiudp0UR2xqaIMdlDf4nzDdbdkVGGgX+f+qBA=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:04:43 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:04:45 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:04:45 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQCjsgpgINB-ju_UlZtpGVedAXn1_Y55oruk6X8hAnv9dJH5enk7mk7jzyLyOOnt0-2Jx7R3njSi0yHHGcJfEam7UMGVssvp3ZXpVUA-pE34wSFFkEKlGRhVpY81rpI9SgBNPWnSJqTadhWd0jJoneFKi9oAzcpWmofGYUqYMoK4qEo4zNaUVfVU_yHBkAYsEbHRblboB-L_wOkrut2McdlzS8h2AZ6oQrqb2FXlCecJHRqATq81rpzVfAPx2Vcc_Gdbv06SIho-EkUebBmcqr2HbBGyEfFV-31ZiO4B8aLHRRxQLK0f_oY9r_91PlWWalRPkqAuuDiuNZBcX4PrgPXd&state=77a4be37397198efa1cb5050f342dd87350144e203e33462" for ::1 at 2015-06-16 12:04:53 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQCjsgpgINB-ju_UlZtpGVedAXn1_Y55oruk6X8hAnv9dJH5enk7mk7jzyLyOOnt0-2Jx7R3njSi0yHHGcJfEam7UMGVssvp3ZXpVUA-pE34wSFFkEKlGRhVpY81rpI9SgBNPWnSJqTadhWd0jJoneFKi9oAzcpWmofGYUqYMoK4qEo4zNaUVfVU_yHBkAYsEbHRblboB-L_wOkrut2McdlzS8h2AZ6oQrqb2FXlCecJHRqATq81rpzVfAPx2Vcc_Gdbv06SIho-EkUebBmcqr2HbBGyEfFV-31ZiO4B8aLHRRxQLK0f_oY9r_91PlWWalRPkqAuuDiuNZBcX4PrgPXd", "state"=>"77a4be37397198efa1cb5050f342dd87350144e203e33462"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "facebook"], ["uid", "108687219469768"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'frafxia_chengsky_1434468734@tfbnw.net' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("provider", "uid", "email", "encrypted_password", "name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["provider", "facebook"], ["uid", "108687219469768"], ["email", "frafxia_chengsky_1434468734@tfbnw.net"], ["encrypted_password", "$2a$10$pT2kneU8nQNS5cD3B5az0u6mw8ExAsa4aRnMqiPn2lj7MUOtXUFuy"], ["name", "Mark Amihedgjeida Chengsky"], ["image", "http://graph.facebook.com/108687219469768/picture"], ["created_at", "2015-06-16 16:04:54.324934"], ["updated_at", "2015-06-16 16:04:54.324934"]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 8]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "profiles" ("name", "photo_url") VALUES ($1, $2) RETURNING "id"  [["name", "Mark Amihedgjeida Chengsky"], ["photo_url", "http://graph.facebook.com/108687219469768/picture"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "profiles" SET "user_id" = $1 WHERE "profiles"."id" = $2[0m  [["user_id", 8], ["id", 6]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-06-16 16:04:54.339043"], ["current_sign_in_at", "2015-06-16 16:04:54.339043"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2015-06-16 16:04:54.340650"], ["id", 8]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 105ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:04:54 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 12:04:56 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  [1m[36mFriendship Load (0.2ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 8]]
+  Rendered users/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for ::1 at 2015-06-16 12:05:03 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "profiles".* FROM "profiles"
+  Rendered users/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 25ms (Views: 22.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/recommendations/8" for ::1 at 2015-06-16 12:05:05 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecommendation Load (0.4ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 8]]
+  Rendered recommendations/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for ::1 at 2015-06-16 12:05:07 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "profiles".* FROM "profiles"
+  Rendered users/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/recommendations" for ::1 at 2015-06-16 12:05:12 -0400
+Processing by RecommendationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oDU+euxcRUnnAgAqNkm0PXoJdJSbWagAT7g+y56p12FuFUiUZLWfKz6ok6Mq7ORdZzyuHhhqtqQeC34c4AS6kA==", "first_match_id"=>"7", "second_match_id"=>"8", "status_id"=>"1", "commit"=>"Make a match!"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "recommendations" ("second_match_id", "first_match_id", "status_id", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["second_match_id", 8], ["first_match_id", 7], ["status_id", 1], ["user_id", 8]]
+  [1m[35m (1.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/recommendations/8
+Completed 302 Found in 16ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/recommendations/8" for ::1 at 2015-06-16 12:05:12 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 8]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  Rendered recommendations/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 34ms (Views: 31.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-16 12:05:15 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 8 OR second_match_id = 8)
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mProfile Load (0.1ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 8]]
+  Rendered received_recommendations/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 25ms (Views: 22.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-16 12:05:17 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecommendation Load (0.5ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 8 OR second_match_id = 8) AND status_id = 4)
+  Rendered accepted_recommendations/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 12:05:18 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bl9PXk3YQX+QsI7L5sOEq6Br9f1fcL4q8Nq1V+g+kfmgfzmwxTGbHUkaHUL6ZtTLvV4vd9xDoI6hafWAlpP8CA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:05:18 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 19ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:06:11 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:06:31 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:06:31 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQBG1BqvZR0z76vivEW2e1VtTLKofCPTR60tHrOnVxBmWiTsJo4i3GbtGOdKWwyvB3mRPuhYT7cqeAs7R1MhCITEzhRldEFwPS4_Bjhw9257tQ9tWupM_yQvmc6sgDPcVqg2XVsLzE-Dx3r1hP10QjQtzkcI3E7N0rvHfRCj8Pudfw1aQ9GMH3eCzBEaJJKlcGNCCEjBJZ3cxBV2vnnnTXe5d4zsaq3nn8NTa0uDpDNcrHOsE1lxbReALDUBpw3v2l24p0SxaU-U0OD9YIABQn-10zmwT9lVpDO3cS4blJwBy5B5YfSzLq8A2wZkG9Jxd-g&state=4278958d60f8ee0e0f04b10a6c949bec5629a50770fa8f85" for ::1 at 2015-06-16 12:07:01 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBG1BqvZR0z76vivEW2e1VtTLKofCPTR60tHrOnVxBmWiTsJo4i3GbtGOdKWwyvB3mRPuhYT7cqeAs7R1MhCITEzhRldEFwPS4_Bjhw9257tQ9tWupM_yQvmc6sgDPcVqg2XVsLzE-Dx3r1hP10QjQtzkcI3E7N0rvHfRCj8Pudfw1aQ9GMH3eCzBEaJJKlcGNCCEjBJZ3cxBV2vnnnTXe5d4zsaq3nn8NTa0uDpDNcrHOsE1lxbReALDUBpw3v2l24p0SxaU-U0OD9YIABQn-10zmwT9lVpDO3cS4blJwBy5B5YfSzLq8A2wZkG9Jxd-g", "state"=>"4278958d60f8ee0e0f04b10a6c949bec5629a50770fa8f85"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "facebook"], ["uid", "10204796129525558"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4  [["current_sign_in_at", "2015-06-16 16:07:02.059964"], ["sign_in_count", 2], ["updated_at", "2015-06-16 16:07:02.062001"], ["id", 7]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:07:02 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+Completed 200 OK in 37ms (Views: 35.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 12:07:27 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RQxyMRExndazBhtRKiC3xv3ElDJzxmV3VUCqLmMy5TMb2KL06tyKrO5PXgsWb0Q7wNqbfVVjLiib+tqQUtlIeQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:07:27 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 19ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:07:28 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:07:28 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQBIBg_s1VvfsN7zP9XlMZcTuoKSaIgK99XqxGh3aTA2NBh8OiCRgNTDV0uhoTQEs8aAlXB1ISCX-H_fOrC7W9AKRWrBsDX_6Q4sDrTXdspQKITevqGetBuyIRXVrb58AqqPHw_Ez7Rq505CYWQZFDvfgShp8kn9nmFz79MQXcGbzlAkynCWPgHtdB1onHLZT-MinbSnaLFMDXTyIbNFvuVquhCRdRKgB2t2k_kLDftjSYvsRz2ZvOaphfGfIOlBIS0qZmLtyzxqwQtSIFHMkh1vFaN4nQml3Vrq-SL7FfuUZgALHF_eReKz6puY3qj1vuLPODUT81ET22KzvidJB2Bs&state=c69e68995dcbdcdeeb7e6fbabbd003bab76bf0ee013136fe" for ::1 at 2015-06-16 12:07:42 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBIBg_s1VvfsN7zP9XlMZcTuoKSaIgK99XqxGh3aTA2NBh8OiCRgNTDV0uhoTQEs8aAlXB1ISCX-H_fOrC7W9AKRWrBsDX_6Q4sDrTXdspQKITevqGetBuyIRXVrb58AqqPHw_Ez7Rq505CYWQZFDvfgShp8kn9nmFz79MQXcGbzlAkynCWPgHtdB1onHLZT-MinbSnaLFMDXTyIbNFvuVquhCRdRKgB2t2k_kLDftjSYvsRz2ZvOaphfGfIOlBIS0qZmLtyzxqwQtSIFHMkh1vFaN4nQml3Vrq-SL7FfuUZgALHF_eReKz6puY3qj1vuLPODUT81ET22KzvidJB2Bs", "state"=>"c69e68995dcbdcdeeb7e6fbabbd003bab76bf0ee013136fe"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "facebook"], ["uid", "1431039217219554"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'dzlvluf_alisonson_1434468734@tfbnw.net' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "email", "encrypted_password", "name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["provider", "facebook"], ["uid", "1431039217219554"], ["email", "dzlvluf_alisonson_1434468734@tfbnw.net"], ["encrypted_password", "$2a$10$TP/1a46OHeZbM2UGKseidODxSRQc4wXh5z95PSs7cAMCou0xLbnXy"], ["name", "Patricia Amidjdfiefie Alisonson"], ["image", "http://graph.facebook.com/1431039217219554/picture"], ["created_at", "2015-06-16 16:07:42.956748"], ["updated_at", "2015-06-16 16:07:42.956748"]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 9]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "profiles" ("name", "photo_url") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Patricia Amidjdfiefie Alisonson"], ["photo_url", "http://graph.facebook.com/1431039217219554/picture"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "profiles" SET "user_id" = $1 WHERE "profiles"."id" = $2  [["user_id", 9], ["id", 7]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2015-06-16 16:07:42.968274"], ["current_sign_in_at", "2015-06-16 16:07:42.968274"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2015-06-16 16:07:42.969138"], ["id", 9]]
+  [1m[35m (1.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 86ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:07:42 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 9]]
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 12:07:44 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 9]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 9]]
+  [1m[35mFriendship Load (0.2ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 9]]
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 9]]
+  Rendered users/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 12:08:28 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FShZBexPAfWt3/CqMefsDQEx78MqiKY2Yx53MZhosh4P+nVWAX5A2zlGjq7fuP7mbScQsZzZEAwDYEqDlMt0CQ=="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 9]]
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:08:28 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 37ms (Views: 35.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:09:01 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:09:01 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQDLc6mlqgeR6zHQ6jhMIuss_FTsU4ohwNx-wvTpW5j4WoMToYhZl2TbjrTtGpINddkZabajm-7Ro-LbWasjNQoH2Odieta8PLpin5FxkzsyT6HQreYe3hT3R3f1UdLq1Z6hsJ_gho25Dp_jS6iWVVgAf7PxejkEgHnNYqUjgpJ_-jH_51DQsjOfVyycNFUhq2NQbHkZ-MTD44-nfuhYJzVbUB24aEG-2teOb3MVU7Xj3UcoWBpeQAeUxSZBdMMmINJK8UI9mJNhUmxuyt3S7Hed8TNZCclskJmyNZLJqZJeuUD7MLJ_Rn7h57weMIDe1LRTeiME_kWu7U5uyIWictgh&state=19f517f6141500054b946a0178ddadc400536b8e9c7771ab" for ::1 at 2015-06-16 12:09:05 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDLc6mlqgeR6zHQ6jhMIuss_FTsU4ohwNx-wvTpW5j4WoMToYhZl2TbjrTtGpINddkZabajm-7Ro-LbWasjNQoH2Odieta8PLpin5FxkzsyT6HQreYe3hT3R3f1UdLq1Z6hsJ_gho25Dp_jS6iWVVgAf7PxejkEgHnNYqUjgpJ_-jH_51DQsjOfVyycNFUhq2NQbHkZ-MTD44-nfuhYJzVbUB24aEG-2teOb3MVU7Xj3UcoWBpeQAeUxSZBdMMmINJK8UI9mJNhUmxuyt3S7Hed8TNZCclskJmyNZLJqZJeuUD7MLJ_Rn7h57weMIDe1LRTeiME_kWu7U5uyIWictgh", "state"=>"19f517f6141500054b946a0178ddadc400536b8e9c7771ab"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "facebook"], ["uid", "1435501820106237"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'djhrwgc_bowerssen_1434468734@tfbnw.net' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("provider", "uid", "email", "encrypted_password", "name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["provider", "facebook"], ["uid", "1435501820106237"], ["email", "djhrwgc_bowerssen_1434468734@tfbnw.net"], ["encrypted_password", "$2a$10$ZiKyFksZWMOgzBF8o118DO9b0VbQcMSwKKzva261tQT8fFqYRtBYq"], ["name", "Bob Amicibiifdag Bowerssen"], ["image", "http://graph.facebook.com/1435501820106237/picture"], ["created_at", "2015-06-16 16:09:05.499901"], ["updated_at", "2015-06-16 16:09:05.499901"]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 10]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "profiles" ("name", "photo_url") VALUES ($1, $2) RETURNING "id"  [["name", "Bob Amicibiifdag Bowerssen"], ["photo_url", "http://graph.facebook.com/1435501820106237/picture"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "profiles" SET "user_id" = $1 WHERE "profiles"."id" = $2[0m  [["user_id", 10], ["id", 8]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-06-16 16:09:05.510106"], ["current_sign_in_at", "2015-06-16 16:09:05.510106"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2015-06-16 16:09:05.510952"], ["id", 10]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 88ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:09:05 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 10]]
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 12:09:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 10]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 10]]
+  [1m[36mFriendship Load (0.3ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for ::1 at 2015-06-16 12:09:10 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 10]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "profiles".* FROM "profiles"
+  Rendered users/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/recommendations/10" for ::1 at 2015-06-16 12:09:13 -0400
+Processing by RecommendationsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 10]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE "recommendations"."user_id" = $1  [["user_id", 10]]
+  Rendered recommendations/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 34ms (Views: 31.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/received_recommendations" for ::1 at 2015-06-16 12:09:15 -0400
+Processing by ReceivedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 10]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE (first_match_id = 10 OR second_match_id = 10)
+  Rendered received_recommendations/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 24ms (Views: 21.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/accepted_recommendations" for ::1 at 2015-06-16 12:09:17 -0400
+Processing by AcceptedRecommendationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 10]]
+  [1m[35mRecommendation Load (0.3ms)[0m  SELECT "recommendations".* FROM "recommendations" WHERE ((first_match_id = 10 OR second_match_id = 10) AND status_id = 4)
+  Rendered accepted_recommendations/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 27ms (Views: 23.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 12:09:20 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GqteyTM74rAyH+PxRR1JsI8Smx//7XOM8fnGLPmaJoP85UaE+D2ZhunD/1o+hizmhJqXlNJauHvhbKA58Wc5Lg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 10]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:09:20 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 33ms (Views: 32.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:09:40 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 18ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:09:41 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:10:33 -0400
+
+
+Started GET "/" for ::1 at 2015-06-16 12:11:16 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 51ms (Views: 49.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-16 12:11:16 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-16 12:11:16 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-16 12:11:16 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-16 12:11:17 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-16 12:11:17 -0400
+
+
+Started GET "/" for ::1 at 2015-06-16 12:11:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 237ms (Views: 226.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:11:37 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:11:37 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQDfeMHhTq983IGeZjqmrILZK3QDMkk55xNjUhzgtDWpQYdJTgAFtcZ4sq9U-E9EH9mzGxQXO-44AsnOi87wyXZaqCRAPl_6eCBdKBq7NnSg1B4sOr3OYLBBFUjw84g2Drsjt5vlXg6Qz6N_CH4vbB2l0sV847e1gQ20AoQzSqYueMMDU8go4yNnEbDJi15___3MCLpT2GgH-W2fmgfWnWxOkLTa5KFEgRWIqD4QDNfpm6qyS3jA7Vna2dPzFPGESWnbOWlFmO_dzhjCAs2chwX-a0eVNEAiO_2BNd10njiuc9gNs80jDYR-uGtrcOqhmMnm1ONEKnSKaz8vCb0hq_Y5&state=254087d285e684492fc7c198d342804bb4902b0556c4e39f" for ::1 at 2015-06-16 12:11:37 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDfeMHhTq983IGeZjqmrILZK3QDMkk55xNjUhzgtDWpQYdJTgAFtcZ4sq9U-E9EH9mzGxQXO-44AsnOi87wyXZaqCRAPl_6eCBdKBq7NnSg1B4sOr3OYLBBFUjw84g2Drsjt5vlXg6Qz6N_CH4vbB2l0sV847e1gQ20AoQzSqYueMMDU8go4yNnEbDJi15___3MCLpT2GgH-W2fmgfWnWxOkLTa5KFEgRWIqD4QDNfpm6qyS3jA7Vna2dPzFPGESWnbOWlFmO_dzhjCAs2chwX-a0eVNEAiO_2BNd10njiuc9gNs80jDYR-uGtrcOqhmMnm1ONEKnSKaz8vCb0hq_Y5", "state"=>"254087d285e684492fc7c198d342804bb4902b0556c4e39f"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "facebook"], ["uid", "1435501820106237"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4  [["current_sign_in_at", "2015-06-16 16:11:37.541105"], ["sign_in_count", 2], ["updated_at", "2015-06-16 16:11:37.543344"], ["id", 10]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 53ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:11:37 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 10]]
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 12:11:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 10]]
+  [1m[35mProfile Load (0.6ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 10]]
+  [1m[36mFriendship Load (0.2ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 10]]
+  Rendered users/show.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 102ms (Views: 61.2ms | ActiveRecord: 4.6ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 12:11:50 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"l4ApwJ/YG0nzPESnji3KyPVEW36STh02t3K5yHik89tsQIpqiA70RmwouttAkCKgorosqZGeoiDB2MGI5xYvZQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 10]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:11:50 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 28ms (Views: 26.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:12:23 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:12:23 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQD0vvrpiq4kqp9YLgHfanRzhb7zBn2QbpE7uOjRDDeAayI2qjMBxZX_uyqntLVp6gW8vzcVF6f3y7ev9RHcJlNYvwbixcsY8teEN4QTSU2OodK7XEHOdEQCrCiP5zdG1ocXxJJ_cqt2kpRarLuuizwh-nOx_g0BaAdVE64_FbGb3cSDcI_mt2P2jVdzQd6pZSm_Hbj7bLetzYBOU-J_panZab7ldPgNV8sPVmZjSplFPYUki_f1LjPDgQWz4TTZBfuIidIRVYV_mMfaLFtXQ-REYs95xLelJnUN0t7xOrsuv2Fdr48XupB7VwKwb1LHEpw&state=f74db5910b900a815e70153ef176cd40504c9c3b6be7f082" for ::1 at 2015-06-16 12:12:59 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQD0vvrpiq4kqp9YLgHfanRzhb7zBn2QbpE7uOjRDDeAayI2qjMBxZX_uyqntLVp6gW8vzcVF6f3y7ev9RHcJlNYvwbixcsY8teEN4QTSU2OodK7XEHOdEQCrCiP5zdG1ocXxJJ_cqt2kpRarLuuizwh-nOx_g0BaAdVE64_FbGb3cSDcI_mt2P2jVdzQd6pZSm_Hbj7bLetzYBOU-J_panZab7ldPgNV8sPVmZjSplFPYUki_f1LjPDgQWz4TTZBfuIidIRVYV_mMfaLFtXQ-REYs95xLelJnUN0t7xOrsuv2Fdr48XupB7VwKwb1LHEpw", "state"=>"f74db5910b900a815e70153ef176cd40504c9c3b6be7f082"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "facebook"], ["uid", "3198426927828"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'thegoldfish@comcast.net' LIMIT 1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "email", "encrypted_password", "name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["provider", "facebook"], ["uid", "3198426927828"], ["email", "thegoldfish@comcast.net"], ["encrypted_password", "$2a$10$2FSrk7BGGRD0W.pZzBONyehdsH546RGlWadJtTBNQyVNXDmcF6/ZO"], ["name", "Julia Rose"], ["image", "http://graph.facebook.com/3198426927828/picture"], ["created_at", "2015-06-16 16:13:00.137213"], ["updated_at", "2015-06-16 16:13:00.137213"]]
+  [1m[35mProfile Load (0.4ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 11]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "profiles" ("name", "photo_url") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Julia Rose"], ["photo_url", "http://graph.facebook.com/3198426927828/picture"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "profiles" SET "user_id" = $1 WHERE "profiles"."id" = $2  [["user_id", 11], ["id", 9]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2015-06-16 16:13:00.162479"], ["current_sign_in_at", "2015-06-16 16:13:00.162479"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2015-06-16 16:13:00.164083"], ["id", 11]]
+  [1m[35m (1.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 163ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:13:00 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 11]]
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 12:13:04 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 11]]
+  [1m[35mFriendship Load (0.2ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 11]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 11]]
+  Rendered users/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 28ms (Views: 24.2ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 12:13:19 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"EeLjMJ2ocPYhOMA/9XWUG0RDGxpUxeznxnLlRjfO0ZloND7rkOurBPXRU8RRRkXxqr+ctv1QKuv82J/MQAJM+w=="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:13:19 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 36ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:38:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 225ms (Views: 214.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:38:44 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:38:44 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQD7i6qYw4sXujPsRwWJucWxNCkKr1DFfK1i1AnIxT_BOT_8I2dPkQWVnuzzYuSk3CVxVvoWDr7kIfdji51IT-KfjToOIWObYZycjra6sRqoJsMtQuFLTywzbnNPZEOcaTYafVH1nrdgfxyAUNdNitrAxs2XIxpk4eTMSER0q5wIEWN6iBGjtOIHHArI-ztvH7v4UwEeFhGmNQONAyzhmsngwCybNFw_QQnKK86XyprDV1laQ9p_vmhaBROnPDXNV2e-Hqh7RdclvT65TF2ycNs73dSYMUMECrGMtK55Ecaao4sHM_AVTDDinii-8lx-BvA&state=583500a81143b6f6891bcac53114cd9c10d84753977d6f2c" for ::1 at 2015-06-16 12:38:52 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQD7i6qYw4sXujPsRwWJucWxNCkKr1DFfK1i1AnIxT_BOT_8I2dPkQWVnuzzYuSk3CVxVvoWDr7kIfdji51IT-KfjToOIWObYZycjra6sRqoJsMtQuFLTywzbnNPZEOcaTYafVH1nrdgfxyAUNdNitrAxs2XIxpk4eTMSER0q5wIEWN6iBGjtOIHHArI-ztvH7v4UwEeFhGmNQONAyzhmsngwCybNFw_QQnKK86XyprDV1laQ9p_vmhaBROnPDXNV2e-Hqh7RdclvT65TF2ycNs73dSYMUMECrGMtK55Ecaao4sHM_AVTDDinii-8lx-BvA", "state"=>"583500a81143b6f6891bcac53114cd9c10d84753977d6f2c"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "facebook"], ["uid", "10204796129525558"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5  [["last_sign_in_at", "2015-06-16 16:07:02.059964"], ["current_sign_in_at", "2015-06-16 16:38:52.253718"], ["sign_in_count", 3], ["updated_at", "2015-06-16 16:38:52.256457"], ["id", 7]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 57ms (ActiveRecord: 15.2ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:38:52 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+Completed 200 OK in 22ms (Views: 21.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 12:38:55 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mProfile Load (0.5ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mFriendship Load (2.8ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (40.7ms)
+Completed 200 OK in 177ms (Views: 136.7ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/logout" for ::1 at 2015-06-16 12:39:00 -0400
+
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/haleighharper/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/haleighharper/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/haleighharper/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (18.2ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (74.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (22.9ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (49.0ms)
+
+
+Started GET "/logout" for ::1 at 2015-06-16 12:39:00 -0400
+
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/haleighharper/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/haleighharper/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/haleighharper/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (41.8ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (12.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (29.5ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 12:39:58 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mProfile Load (0.2ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mFriendship Load (2.2ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 44ms (Views: 38.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users" for ::1 at 2015-06-16 12:40:01 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "profiles".* FROM "profiles"
+  Rendered users/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 33ms (Views: 21.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/sign_out" for ::1 at 2015-06-16 12:40:05 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mFriendship Load (0.3ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 25ms (Views: 21.1ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 12:40:11 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5tkpuRXq65mfuwlTeSlde0UI/jFzm2VFaVIU3pxMYwU27XD8AmlQD3J3bcy9jHSj3e+SX5dyxIDXNJWGHAfUYg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:40:11 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:40:15 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 12:40:15 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQCmqJdmhXVmTmot7jRrsgTs038hF4uuPIxLkEpY-Y_vrwbxDgP-gaKB9i_QqTxksaW45yHrkTPnVTGERVoxK2uZM9n-KPZIjzC_qyUfYqwVieW1KUr8T1xwc-U0bBUq572HzoBVVCHHIHROSSSrJhdMle1paK5YMAUX95kJbiYuuv9ZKh4OA9IfRlBLmRfthV3LWXlufwqZm5D1-tkc5NOFcG6md8NaZwkD6tY7Fj2u9dFRspK2UHl7YNIMG3-kugl8SA6LFplvWMXqow43ON2EerJ68PMgwx_EsguLeAUkO4QKbFVVQgP8J5VsQnzvMLY&state=c7a8ba360c1f667ba3e6fa37d5f5fe116d2bb36605fc46fd" for ::1 at 2015-06-16 12:40:15 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQCmqJdmhXVmTmot7jRrsgTs038hF4uuPIxLkEpY-Y_vrwbxDgP-gaKB9i_QqTxksaW45yHrkTPnVTGERVoxK2uZM9n-KPZIjzC_qyUfYqwVieW1KUr8T1xwc-U0bBUq572HzoBVVCHHIHROSSSrJhdMle1paK5YMAUX95kJbiYuuv9ZKh4OA9IfRlBLmRfthV3LWXlufwqZm5D1-tkc5NOFcG6md8NaZwkD6tY7Fj2u9dFRspK2UHl7YNIMG3-kugl8SA6LFplvWMXqow43ON2EerJ68PMgwx_EsguLeAUkO4QKbFVVQgP8J5VsQnzvMLY", "state"=>"c7a8ba360c1f667ba3e6fa37d5f5fe116d2bb36605fc46fd"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "facebook"], ["uid", "10204796129525558"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5  [["last_sign_in_at", "2015-06-16 16:38:52.253718"], ["current_sign_in_at", "2015-06-16 16:40:15.491296"], ["sign_in_count", 4], ["updated_at", "2015-06-16 16:40:15.492954"], ["id", 7]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:40:15 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 12:40:16 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mFriendship Load (0.2ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 25ms (Views: 20.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_out" for ::1 at 2015-06-16 12:40:18 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mFriendship Load (0.3ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 31ms (Views: 27.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/sign_out" for ::1 at 2015-06-16 12:40:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1  [["user_id", 7]]
+  [1m[36mFriendship Load (0.2ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 42ms (Views: 37.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-16 12:40:38 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-16 12:40:38 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-16 12:40:38 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-16 12:40:38 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-16 12:40:38 -0400
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 12:40:39 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"21hKBZrbBlLq8KSYNyU6iA6aTenmaumGwfK0ruZxPLaHySHLsyGFSkHa2En6pK8331E8kiBWRwGE7QT9UGzDfw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 12:40:39 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 13:06:46 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 484ms (Views: 473.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/facebook.self-09ee8ed4ea00124a9eefcfcd438251703311e3e0b35d38b834e7e3ba9979be2c.js?body=1" for ::1 at 2015-06-16 13:06:46 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-16 13:06:46 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-16 13:06:46 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-16 13:06:46 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-16 13:06:46 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-16 13:06:46 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 13:06:49 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 13:06:49 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQDfERr8sSRB625suKv743tQav0pGwXzlS4uiUmtksBu8wqzfx6AcXV8Dtb8FgQIWCs98tM_RnJjmrP2N3FZdAuUmutCzrGhb9maE_-_JOaffN0ufu3c9wwWeE0d_iZLhK6j7Q6EgVhCCddbV2uOQYJcaIN6JNozN-lJzYRoxSEW4ZvnyrklnzQy5QdG8d9lC427yg7cFrq1geCTEkpUHtZmHMBWz4d861KFHc80bI5Gp4OcEsnujBN6ajWSyQ7uNRv8OXTs835XUMDk__A_iFHwcClvbt-OKDlca-Daaxxf-DGmPgl1JJlUwCK9DG5TuPc&state=f39a813fdbefefdcdd42a508b7f99750c36118b1bf43ddb5" for ::1 at 2015-06-16 13:06:50 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDfERr8sSRB625suKv743tQav0pGwXzlS4uiUmtksBu8wqzfx6AcXV8Dtb8FgQIWCs98tM_RnJjmrP2N3FZdAuUmutCzrGhb9maE_-_JOaffN0ufu3c9wwWeE0d_iZLhK6j7Q6EgVhCCddbV2uOQYJcaIN6JNozN-lJzYRoxSEW4ZvnyrklnzQy5QdG8d9lC427yg7cFrq1geCTEkpUHtZmHMBWz4d861KFHc80bI5Gp4OcEsnujBN6ajWSyQ7uNRv8OXTs835XUMDk__A_iFHwcClvbt-OKDlca-Daaxxf-DGmPgl1JJlUwCK9DG5TuPc", "state"=>"f39a813fdbefefdcdd42a508b7f99750c36118b1bf43ddb5"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "facebook"], ["uid", "10204796129525558"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5  [["last_sign_in_at", "2015-06-16 16:40:15.491296"], ["current_sign_in_at", "2015-06-16 17:06:50.365693"], ["sign_in_count", 5], ["updated_at", "2015-06-16 17:06:50.367889"], ["id", 7]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 53ms (ActiveRecord: 8.1ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 13:06:50 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined local variable or method `signout_path' for #<#<Class:0x007fd717356218>:0x007fd71370f778>):
+    28: 
+    29:                                 <% if current_user %>
+    30:                                 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+    31:                                 <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    32:                                 <% else %>
+    33:                                 <a href='/users/sign_in'>Sign In</a>
+    34:                               </li>
+  app/views/layouts/application.html.erb:31:in `_app_views_layouts_application_html_erb__4492765933031066786_70280892089860'
+
+
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.1ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (21.9ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (52.9ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 13:08:49 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+Completed 200 OK in 38ms (Views: 36.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-16 13:08:49 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-16 13:08:49 -0400
+
+
+Started GET "/assets/facebook.self-09ee8ed4ea00124a9eefcfcd438251703311e3e0b35d38b834e7e3ba9979be2c.js?body=1" for ::1 at 2015-06-16 13:08:49 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-16 13:08:49 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-16 13:08:49 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-16 13:08:49 -0400
+
+
+Started GET "/users/sign_out" for ::1 at 2015-06-16 13:08:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (39.1ms)
+Completed 200 OK in 103ms (Views: 58.9ms | ActiveRecord: 4.0ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 13:08:57 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9JxvzY3c56IfK9HfoNqhcv+Lnbj8VmrR7S58cgZJAOO/Ku0VHxI3aKqO8OUI3e32NAFrqwKc8aNgWsqZS1keXw=="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 13:08:57 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 13:08:58 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 13:08:58 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQC7-mxRc5MhAhKyZpgSe_8VTjdGzR2bhE0KRiqj_Q71Ml3nJo5U2ZnGPD7todiF-v7ieg7wzd7vkMommCdZQ9RJdT5v6MWX5FNQbRWK4xveVfAVEajYBB2mJixBNkwmXY8UXFil-PO6YGHjJuyJgE9qJqdHpMUygbHRFHl_r83xXRrIiEMvOIfLyw0aA7ViwPXlf8-zwl-Sl2D4dU8JT74L5yi3PtYpyfFsU17S5rs5NDZkwFXS1sNPcKxWI1OF5bQ11bEtLTBkFpJk0k5Jydqj-Uw3spqTmeyGKa-yy6d-AA2uaDPbLT-VxS2mDzTSoCE&state=2505af9eabeb0bac38d84f670a116f31cebf63d7fcb1e0ce" for ::1 at 2015-06-16 13:08:58 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQC7-mxRc5MhAhKyZpgSe_8VTjdGzR2bhE0KRiqj_Q71Ml3nJo5U2ZnGPD7todiF-v7ieg7wzd7vkMommCdZQ9RJdT5v6MWX5FNQbRWK4xveVfAVEajYBB2mJixBNkwmXY8UXFil-PO6YGHjJuyJgE9qJqdHpMUygbHRFHl_r83xXRrIiEMvOIfLyw0aA7ViwPXlf8-zwl-Sl2D4dU8JT74L5yi3PtYpyfFsU17S5rs5NDZkwFXS1sNPcKxWI1OF5bQ11bEtLTBkFpJk0k5Jydqj-Uw3spqTmeyGKa-yy6d-AA2uaDPbLT-VxS2mDzTSoCE", "state"=>"2505af9eabeb0bac38d84f670a116f31cebf63d7fcb1e0ce"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "facebook"], ["uid", "10204796129525558"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["last_sign_in_at", "2015-06-16 17:06:50.365693"], ["current_sign_in_at", "2015-06-16 17:08:59.142500"], ["sign_in_count", 6], ["updated_at", "2015-06-16 17:08:59.144315"], ["id", 7]]
+  [1m[35m (1.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 13:08:59 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 13:09:00 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 32ms (Views: 27.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/sign_out" for ::1 at 2015-06-16 13:09:02 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mFriendship Load (0.2ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 7]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 27ms (Views: 23.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_out" for ::1 at 2015-06-16 13:09:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 36ms (Views: 29.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-16 13:09:13 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-16 13:09:13 -0400
+
+
+Started GET "/assets/facebook.self-09ee8ed4ea00124a9eefcfcd438251703311e3e0b35d38b834e7e3ba9979be2c.js?body=1" for ::1 at 2015-06-16 13:09:13 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-16 13:09:13 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-16 13:09:13 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-16 13:09:13 -0400
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 13:09:15 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jpdZo5zacONV6cw8YviV4aNcjr2q1bYtqiQW94jXAj3ZwUcOu7CeJw9nNqIM27auVb94+YB6oRoW6kNscyWj+A=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 13:09:15 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 39ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 13:09:16 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 13:09:16 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQDXHBf5WbNHBRFUu4gn2AuzOU7TgOi_1-q73b8DLiDNg_0xP_7NABkA-qcBAS9HBxTyUfS3nZ70sfzFm7hpghSTuXUAw_atMoe8FTOfqQkeXTiY4q1oUS4X-morRlYlgj1A1gzXrtFlcjyOfuJFVj8yI3QlmAJHRN-3xnuh3f8t6F9LAe_7iaMrk3kkACX6NHrn4XImJPlHVMXaWCdU7-CW2o4YH8r_nVAD39zkJBZzRRElun7bp_7hmtQzHLolZQzoMz_W0exLurljVRMOSN7yOE4rF18mpN44tIXITM5cT8wWGUazVlFuQUmHx_hZNWY&state=dc957d09a74dd7ff4cf06bbd5ecdcf73d6408b06d1970a27" for ::1 at 2015-06-16 13:09:16 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDXHBf5WbNHBRFUu4gn2AuzOU7TgOi_1-q73b8DLiDNg_0xP_7NABkA-qcBAS9HBxTyUfS3nZ70sfzFm7hpghSTuXUAw_atMoe8FTOfqQkeXTiY4q1oUS4X-morRlYlgj1A1gzXrtFlcjyOfuJFVj8yI3QlmAJHRN-3xnuh3f8t6F9LAe_7iaMrk3kkACX6NHrn4XImJPlHVMXaWCdU7-CW2o4YH8r_nVAD39zkJBZzRRElun7bp_7hmtQzHLolZQzoMz_W0exLurljVRMOSN7yOE4rF18mpN44tIXITM5cT8wWGUazVlFuQUmHx_hZNWY", "state"=>"dc957d09a74dd7ff4cf06bbd5ecdcf73d6408b06d1970a27"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "facebook"], ["uid", "10204796129525558"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["last_sign_in_at", "2015-06-16 17:08:59.142500"], ["current_sign_in_at", "2015-06-16 17:09:17.023726"], ["sign_in_count", 7], ["updated_at", "2015-06-16 17:09:17.025677"], ["id", 7]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 13:09:17 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 13:09:18 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mFriendship Load (0.2ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 28ms (Views: 23.4ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-16 13:09:19 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Q5EDRBReZhHrJK1U5r5y7GKBgCSTJd/CeR+YVw2vFcTD40Baq8kbj73VfKuNG3VlQV7OgmR+oPSYGOmPfByeOw=="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 13:09:19 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 24ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-06-16 13:09:20 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (1.4ms)
+  Rendered /Users/haleighharper/.rvm/gems/ruby-2.1.2/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (43.1ms)
+Completed 200 OK in 88ms (Views: 80.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 13:09:21 -0400
+
+
+Started GET "/users/auth/facebook" for ::1 at 2015-06-16 13:09:21 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQDLMbtfUJS9hOwabiQsEG44wzSJmdYHBpnOZsGBjNV35OW-QZrVGDY9ND1toOrAL0dVit1ckesPKwHDwk1M8ioM-1Zb_WKui8pnlR1Wi9RETFy-bQ4kYgQYnUT64BcEG5arU7vIf_yh0qtAy2VXkjMr0gf9ZfOSjpZsrxaqs8BhTePD915wK9h1kd1qL65XtY0lpxFBuaquv-WfEkmerU60QggySc6GF9asFtYMNCFB-DP75wDzpAOMnB43dzYEhWizngS186wZhSub6B-LNTP_Pvx_iP-f3hHa9iZdKFx3bBtDHiD-5kx6f46F-B1gLmc&state=29025cb9e45ca8cc712808c23a054fee7a5a567fc20c0d07" for ::1 at 2015-06-16 13:09:21 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDLMbtfUJS9hOwabiQsEG44wzSJmdYHBpnOZsGBjNV35OW-QZrVGDY9ND1toOrAL0dVit1ckesPKwHDwk1M8ioM-1Zb_WKui8pnlR1Wi9RETFy-bQ4kYgQYnUT64BcEG5arU7vIf_yh0qtAy2VXkjMr0gf9ZfOSjpZsrxaqs8BhTePD915wK9h1kd1qL65XtY0lpxFBuaquv-WfEkmerU60QggySc6GF9asFtYMNCFB-DP75wDzpAOMnB43dzYEhWizngS186wZhSub6B-LNTP_Pvx_iP-f3hHa9iZdKFx3bBtDHiD-5kx6f46F-B1gLmc", "state"=>"29025cb9e45ca8cc712808c23a054fee7a5a567fc20c0d07"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "facebook"], ["uid", "10204796129525558"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["last_sign_in_at", "2015-06-16 17:09:17.023726"], ["current_sign_in_at", "2015-06-16 17:09:21.769432"], ["sign_in_count", 8], ["updated_at", "2015-06-16 17:09:21.771282"], ["id", 7]]
+  [1m[35m (1.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-16 13:09:21 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/show" for ::1 at 2015-06-16 13:09:22 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 7]]
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 28ms (Views: 23.9ms | ActiveRecord: 1.3ms)
