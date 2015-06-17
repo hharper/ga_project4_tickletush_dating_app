@@ -8,22 +8,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
-<body>
-  <div class="container-fluid">
+<body class="site">
 
-    <nav id="sticky-nav" class="navbar default" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-    <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">TickleTush</a>
-          </div>
-          <div id="navbar" class="collapse navbar-collapse">
-                  <ul class="nav navbar-nav">
+
+                  <ul class="navigation">
+                          <li>
+                            <strong><a href="/">TickleTush</a></strong>
+                          </li>
                           <li>
 
                           <% if current_user %>
@@ -63,20 +54,20 @@
                           </li>
                           <% end %>
                       </ul>
-      </div>
-      <div class="body">
-      <%= yield %>
-      </div>
-    </div>
+      <main class="site-content">
+        <%= yield %>
+      </main>
 
-  </div>
-
-
+      <footer class="site-footer">
+        TickleTush! Copyright 2015
+        <img src="">
+      </footer>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript">
 <!--jQuery and Bootstrap js-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 </body>
 </html>

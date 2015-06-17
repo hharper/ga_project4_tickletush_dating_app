@@ -7,7 +7,7 @@
 <% for recommendation in @recommendations %>
 
 <% if recommendation.first_match_id == current_user.id %>
-<!-- <%= recommendation.second_match_id %> HAS BEEN RECOMMENDED TO ME -->
+
   <% @second_user = recommendation.second_match_id %>
     <% if @second_user %>
       <% @profile_two = Profile.find_by(user_id: @second_user) %>
@@ -15,7 +15,12 @@
         <img src="<%= @profile_two.photo_url %>?type=large">
       </br>
         <%= @profile_two.name %>
-        HAS BEEN RECOMMENDED TO ME
+        has been recommended to me by
+        <% @recommender = recommendation.user_id %>
+        <% @recommender = Profile.find_by(user_id: @recommender) %>
+        <%= @recommender.name %>
+
+          </br>
       <% end %>
     <% end %>
   </br>
@@ -28,7 +33,7 @@
 </form>
 
 <% else recommendation.second_match_id == current_user.id %>
-<!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO ME -->
+
     <% @first_user = recommendation.first_match_id %>
       <% if @first_user %>
       <% @profile_one = Profile.find_by(user_id: @first_user) %>
@@ -55,10 +60,7 @@
   <input type="submit" value="Decline">
 </form>
 
-<!-- <p> status<%= recommendation.status_id %></p>
-<p> id<%= recommendation.id %></p> -->
 
-<!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
 </br>
 </section>
 </div>
