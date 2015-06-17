@@ -1,9 +1,12 @@
 <!-- <p>Username: <%= current_user.email %> ID:<%= current_user.id %></p> -->
 
+<div class='match-form'>
+
+
 <h1> Make a Match: </h1>
 
 <%= form_for @recommendation do |f| %>
-
+<div class='col-md-12'>
 <select name="first_match_id">
   <% Profile.all.each do |profile| %>
     <option value="<%= profile.user_id %>"><%= profile.name %></option>
@@ -16,19 +19,30 @@
   <% end %>
 </select>
 
+
   <%= hidden_field_tag(:status_id, "1") %>
 
   <%= f.submit "Make a match!"%>
+</div>
 <% end %>
 
 
+</div>
 
+
+
+<div class='friends-list'>
 <h1> Friend List </h1>
+
+
 <% Profile.all.each do |profile| %>
-<p>
-  <img src="<%= profile.photo_url %>?type=large">
-</br>
+<div class='user-images'>
+<div class='col-md-3'>
+  <img src="<%= profile.photo_url %>?width=200&height=200">
+<br>
   <strong><%= profile.name %></strong>
-</br>
-</p>
+</div>
 <% end %>
+
+</div>
+</div>

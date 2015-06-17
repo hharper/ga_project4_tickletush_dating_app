@@ -1,13 +1,15 @@
 <h1> MATCHES I'VE MADE </h1>
-
+<div class='col-md-6'>
 <% for recommendation in @recommendations %>
     <!-- I HAVE RECOMMENDED: -->
     <% @first_user = recommendation.first_match_id %>
       <% if @first_user %>
         <% @profile_one = Profile.find_by(user_id: @first_user) %>
           <% if @profile_one %>
-          <%= @profile_one.name %>
+
           <img src="<%= @profile_one.photo_url %>?type=large">
+
+          <%= @profile_one.name %>
           <% end %>
         <% end %>
 
@@ -21,6 +23,7 @@
         <% end %>
 </br>
 <% end %>
+</div>
 
 <!-- <h1> MY RECOMMENDATIONS (Recommendations that I, the User, have made) </h1>
   <% for recommendation in @recommendations %>
