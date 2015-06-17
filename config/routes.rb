@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       get "decline"
     end
   end
+
+
   resources :comments
   # resources :users
   resources :users do
@@ -25,6 +27,9 @@ Rails.application.routes.draw do
   resources :friendships
   resources :received_recommendations
   resources :accepted_recommendations
+  # resources :recommendations do
+  #   resources :comments
+  # end
 
   # resources :users do
   #   get 'pending_status', :on => :collection

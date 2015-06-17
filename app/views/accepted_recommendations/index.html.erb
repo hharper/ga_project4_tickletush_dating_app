@@ -39,4 +39,20 @@
 
 <!-- <%= recommendation.first_match_id %> HAS BEEN RECOMMENDED TO <%= recommendation.second_match_id %> -->
 
+<h2>Comments</h2>
+ <div id="comments">
+
+         <% for comment in @comments %>
+         <div> <%= comment.body %></div>
+         <% end %>
+
+ </div>
+
+ <%= form_for :comment do |f| %>
+        <p>
+                <%= f.label :body, "New comment" %><br/>
+                <%= f.text_area :body %>
+        </p>
+        <p><%= f.submit "Add comment" %></p>
+<% end %>
 <% end %>

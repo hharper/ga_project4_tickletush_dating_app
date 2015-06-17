@@ -1,16 +1,22 @@
 class CommentsController < ApplicationController
 
   def index
-    @comments = Comments.all
+    @comments = Comment.all
   end
 
   def show
-    @comment = Comment.find([params:id])
+    @comment = Comment.find(params[:id])
   end
 
 
+  def new
+    @comment = Comment.new
+  end
+
   def create
-    @comment = Comment.create
+    @recommendation = Recommendation.find(params[:recommendation_id])
+    @comment = @recommendation.comments.create!
+    redirect_to "/accepted_recommendations"
   end
 
   def edit
@@ -18,7 +24,6 @@ class CommentsController < ApplicationController
   end
 
   def update
-    # @profile = current_user.profile.update(profile_params)
     @comment = Comment.find(params[:id])
     @comment.update
   end
@@ -26,7 +31,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to ("/recommendations/show")
+    redirect_to ("/accepted_recommendations")
   end
 
 
