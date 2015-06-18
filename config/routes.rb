@@ -27,6 +27,11 @@ Rails.application.routes.draw do
   resources :friendships
   resources :received_recommendations
   resources :accepted_recommendations
+  resources :accepted_recommendations do
+    member do
+      post "create_comment"
+    end
+  end
   # resources :recommendations do
   #   resources :comments
   # end

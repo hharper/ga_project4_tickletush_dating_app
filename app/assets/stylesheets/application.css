@@ -17,7 +17,7 @@
   padding: 5px ;
   border-radius: 50%;
   border:1px;
-  background-color:#FF4081;
+  background-color:#727272;
   margin: 3px ;
   }
 
@@ -39,7 +39,7 @@ select {
     *background: #FF4081;
     border:2px ;
     border-style: solid;
-    border-color:#FF4081;
+    border-color:#727272;
 }
 
 .site {
@@ -124,4 +124,20 @@ p {
  .navigation li:last-of-type a {
    border-bottom: none;
  }
+}
+
+.matchesmade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pendingmatches {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.friends-list{
+  padding-top: 40px;
 }

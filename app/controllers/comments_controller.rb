@@ -8,13 +8,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
-
   def new
     @comment = Comment.new
   end
 
   def create
-    @recommendation = Recommendation.find(params[:recommendation_id])
+    @recommendation = Recommendation.find(params[:id])
     @comment = @recommendation.comments.create!
     redirect_to "/accepted_recommendations"
   end

@@ -71,5 +71,4 @@ class RecommendationsController < ApplicationController
   def recommendation_params
     params[:recommendation].permit(:first_match_id, :second_match_id, :status_id)
   end
-
 end
