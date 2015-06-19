@@ -37,7 +37,7 @@
 
 <% Profile.all.each do |profile| %>
 <div class='user-images'>
-<div class='col-md-3'>
+<div class='col-md-3 text-center'>
   <img src="<%= profile.photo_url %>?width=200&height=200">
 <br>
   <strong><%= profile.name %></strong>
